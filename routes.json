@@ -1,0 +1,452 @@
+[
+ {
+  "origin": "SFO",
+  "dest": "FCO",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "SFO to Rome, outbound"
+ },
+ {
+  "origin": "SFO",
+  "dest": "ATH",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "SFO to Athens, outbound"
+ },
+ {
+  "origin": "SFO",
+  "dest": "LHR",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "SFO to London, outbound"
+ },
+ {
+  "origin": "SFO",
+  "dest": "HNL",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "SFO to Honolulu, outbound"
+ },
+ {
+  "origin": "SFO",
+  "dest": "CUN",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "SFO to Cancun, outbound"
+ },
+ {
+  "origin": "OAK",
+  "dest": "FCO",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "OAK to Rome, outbound"
+ },
+ {
+  "origin": "OAK",
+  "dest": "ATH",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "OAK to Athens, outbound"
+ },
+ {
+  "origin": "OAK",
+  "dest": "LHR",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "OAK to London, outbound"
+ },
+ {
+  "origin": "OAK",
+  "dest": "HNL",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "OAK to Honolulu, outbound"
+ },
+ {
+  "origin": "OAK",
+  "dest": "CUN",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "OAK to Cancun, outbound"
+ },
+ {
+  "origin": "SJC",
+  "dest": "FCO",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "SJC to Rome, outbound"
+ },
+ {
+  "origin": "SJC",
+  "dest": "ATH",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "SJC to Athens, outbound"
+ },
+ {
+  "origin": "SJC",
+  "dest": "LHR",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "SJC to London, outbound"
+ },
+ {
+  "origin": "SJC",
+  "dest": "HNL",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "SJC to Honolulu, outbound"
+ },
+ {
+  "origin": "SJC",
+  "dest": "CUN",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "SJC to Cancun, outbound"
+ },
+ {
+  "origin": "LAX",
+  "dest": "FCO",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "LAX to Rome, outbound"
+ },
+ {
+  "origin": "LAX",
+  "dest": "ATH",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "LAX to Athens, outbound"
+ },
+ {
+  "origin": "LAX",
+  "dest": "LHR",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "LAX to London, outbound"
+ },
+ {
+  "origin": "LAX",
+  "dest": "HNL",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "LAX to Honolulu, outbound"
+ },
+ {
+  "origin": "LAX",
+  "dest": "CUN",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "LAX to Cancun, outbound"
+ },
+ {
+  "origin": "ONT",
+  "dest": "FCO",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "ONT to Rome, outbound"
+ },
+ {
+  "origin": "ONT",
+  "dest": "ATH",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "ONT to Athens, outbound"
+ },
+ {
+  "origin": "ONT",
+  "dest": "LHR",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "ONT to London, outbound"
+ },
+ {
+  "origin": "ONT",
+  "dest": "HNL",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "ONT to Honolulu, outbound"
+ },
+ {
+  "origin": "ONT",
+  "dest": "CUN",
+  "pax": 2,
+  "window": [
+   "2027-06"
+  ],
+  "note": "ONT to Cancun, outbound"
+ },
+ {
+  "origin": "FCO",
+  "dest": "SFO",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Rome home to SFO, return"
+ },
+ {
+  "origin": "ATH",
+  "dest": "SFO",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Athens home to SFO, return"
+ },
+ {
+  "origin": "LHR",
+  "dest": "SFO",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "London home to SFO, return"
+ },
+ {
+  "origin": "HNL",
+  "dest": "SFO",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Honolulu home to SFO, return"
+ },
+ {
+  "origin": "CUN",
+  "dest": "SFO",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Cancun home to SFO, return"
+ },
+ {
+  "origin": "FCO",
+  "dest": "OAK",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Rome home to OAK, return"
+ },
+ {
+  "origin": "ATH",
+  "dest": "OAK",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Athens home to OAK, return"
+ },
+ {
+  "origin": "LHR",
+  "dest": "OAK",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "London home to OAK, return"
+ },
+ {
+  "origin": "HNL",
+  "dest": "OAK",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Honolulu home to OAK, return"
+ },
+ {
+  "origin": "CUN",
+  "dest": "OAK",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Cancun home to OAK, return"
+ },
+ {
+  "origin": "FCO",
+  "dest": "SJC",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Rome home to SJC, return"
+ },
+ {
+  "origin": "ATH",
+  "dest": "SJC",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Athens home to SJC, return"
+ },
+ {
+  "origin": "LHR",
+  "dest": "SJC",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "London home to SJC, return"
+ },
+ {
+  "origin": "HNL",
+  "dest": "SJC",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Honolulu home to SJC, return"
+ },
+ {
+  "origin": "CUN",
+  "dest": "SJC",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Cancun home to SJC, return"
+ },
+ {
+  "origin": "FCO",
+  "dest": "LAX",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Rome home to LAX, return"
+ },
+ {
+  "origin": "ATH",
+  "dest": "LAX",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Athens home to LAX, return"
+ },
+ {
+  "origin": "LHR",
+  "dest": "LAX",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "London home to LAX, return"
+ },
+ {
+  "origin": "HNL",
+  "dest": "LAX",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Honolulu home to LAX, return"
+ },
+ {
+  "origin": "CUN",
+  "dest": "LAX",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Cancun home to LAX, return"
+ },
+ {
+  "origin": "FCO",
+  "dest": "ONT",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Rome home to ONT, return"
+ },
+ {
+  "origin": "ATH",
+  "dest": "ONT",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Athens home to ONT, return"
+ },
+ {
+  "origin": "LHR",
+  "dest": "ONT",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "London home to ONT, return"
+ },
+ {
+  "origin": "HNL",
+  "dest": "ONT",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Honolulu home to ONT, return"
+ },
+ {
+  "origin": "CUN",
+  "dest": "ONT",
+  "pax": 2,
+  "window": [
+   "2027-07"
+  ],
+  "note": "Cancun home to ONT, return"
+ }
+]
