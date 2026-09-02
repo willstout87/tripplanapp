@@ -64,12 +64,29 @@ async function bestAcrossWindow(rt) {
       try { hit = await cheapestViaGraphQL(rt.origin, rt.dest, month); }
       catch (e) { console.error(String(e)); }
     }
-    if (hit) tries.push(hit);
+    if (hit) tries.push({ ...hit, basis: 'window' });
     await new Promise((r) => setTimeout(r, 400));
   }
+
+  // Nothing in the target window. The cache is built from real user searches
+  // kept ~7 days, so a month nine months out is often simply empty. Fall back
+  // to a rolling near month: not your trip, but a barometer for the route that
+  // starts the history line today. Flagged so the app can say so.
+  if (!tries.length) {
+    for (const offset of [60, 90]) {
+      const m = new Date(Date.now() + offset * 864e5).toISOString().slice(0, 7);
+      let hit = null;
+      try { hit = await cheapestInMonth(rt.origin, rt.dest, m); } catch {}
+      if (!hit) { try { hit = await cheapestViaGraphQL(rt.origin, rt.dest, m); } catch {} }
+      if (hit) { tries.push({ ...hit, basis: 'barometer' }); break; }
+      await new Promise((r) => setTimeout(r, 400));
+    }
+  }
+
   if (!tries.length) return null;
   const win = tries.sort((a, b) => a.unit - b.unit)[0];
-  return { price: Math.round(win.unit * rt.pax), date: win.date, carrier: win.carrier, transfers: win.transfers };
+  return { price: Math.round(win.unit * rt.pax), date: win.date, carrier: win.carrier,
+           transfers: win.transfers, basis: win.basis };
 }
 
 // Optional: schedule diffs become "capacity pulled" / "competitor entered".
@@ -132,14 +149,14 @@ for (const rt of routes) {
   await writeFile(file, JSON.stringify({
     origin: rt.origin, dest: rt.dest, pax: rt.pax, note: rt.note ?? null,
     window: rt.window, updated: TODAY,
-    price: q.price, best_date: q.date, carrier: q.carrier, transfers: q.transfers,
-    history: [...prev.history, { day: TODAY, price: q.price, best_date: q.date }].slice(-400),
+    price: q.price, best_date: q.date, basis: q.basis, carrier: q.carrier, transfers: q.transfers,
+    history: [...prev.history, { day: TODAY, price: q.price, best_date: q.date, basis: q.basis }].slice(-400),
     events: events.slice(-40),
     schedule: snap ?? prev.schedule,
   }, null, 1) + '\n');
 
   written++;
-  console.log(rt.origin, '->', rt.dest, '$' + q.price, 'on', q.date);
+  console.log(rt.origin, '->', rt.dest, '$' + q.price, 'on', q.date, q.basis === 'barometer' ? '(barometer)' : '');
 }
 
 console.log(`written ${written}, skipped ${skipped}, failed ${failed}, of ${routes.length}`);
