@@ -1,0 +1,23 @@
+{
+ "origin": "LAX",
+ "dest": "ATH",
+ "pax": 2,
+ "note": "LAX to Athens, outbound",
+ "window": [
+  "2027-06"
+ ],
+ "updated": "2026-09-02",
+ "price": 984,
+ "best_date": "2027-06-30",
+ "carrier": "AS",
+ "transfers": 1,
+ "history": [
+  {
+   "day": "2026-09-02",
+   "price": 984,
+   "best_date": "2027-06-30"
+  }
+ ],
+ "events": [],
+ "schedule": null
+}

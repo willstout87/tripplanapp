@@ -1,0 +1,23 @@
+{
+ "origin": "ATH",
+ "dest": "LAX",
+ "pax": 2,
+ "note": "Athens home to LAX, return",
+ "window": [
+  "2027-07"
+ ],
+ "updated": "2026-09-02",
+ "price": 1134,
+ "best_date": "2027-07-15",
+ "carrier": "GQ",
+ "transfers": 2,
+ "history": [
+  {
+   "day": "2026-09-02",
+   "price": 1134,
+   "best_date": "2027-07-15"
+  }
+ ],
+ "events": [],
+ "schedule": null
+}

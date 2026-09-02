@@ -1,0 +1,23 @@
+{
+ "origin": "LHR",
+ "dest": "LAX",
+ "pax": 2,
+ "note": "London home to LAX, return",
+ "window": [
+  "2027-07"
+ ],
+ "updated": "2026-09-02",
+ "price": 894,
+ "best_date": "2027-07-03",
+ "carrier": "BA",
+ "transfers": 1,
+ "history": [
+  {
+   "day": "2026-09-02",
+   "price": 894,
+   "best_date": "2027-07-03"
+  }
+ ],
+ "events": [],
+ "schedule": null
+}
