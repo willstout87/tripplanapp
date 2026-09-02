@@ -1,0 +1,25 @@
+{
+ "origin": "LAX",
+ "dest": "CUN",
+ "pax": 2,
+ "note": "LAX to Cancun, outbound",
+ "window": [
+  "2027-06"
+ ],
+ "updated": "2026-09-02",
+ "price": 342,
+ "best_date": "2026-11-01",
+ "basis": "barometer",
+ "carrier": "Y4",
+ "transfers": 1,
+ "history": [
+  {
+   "day": "2026-09-02",
+   "price": 342,
+   "best_date": "2026-11-01",
+   "basis": "barometer"
+  }
+ ],
+ "events": [],
+ "schedule": null
+}

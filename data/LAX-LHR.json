@@ -1,0 +1,25 @@
+{
+ "origin": "LAX",
+ "dest": "LHR",
+ "pax": 2,
+ "note": "LAX to London, outbound",
+ "window": [
+  "2027-06"
+ ],
+ "updated": "2026-09-02",
+ "price": 666,
+ "best_date": "2026-11-13",
+ "basis": "barometer",
+ "carrier": "B6",
+ "transfers": 1,
+ "history": [
+  {
+   "day": "2026-09-02",
+   "price": 666,
+   "best_date": "2026-11-13",
+   "basis": "barometer"
+  }
+ ],
+ "events": [],
+ "schedule": null
+}

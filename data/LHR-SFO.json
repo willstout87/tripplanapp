@@ -1,0 +1,25 @@
+{
+ "origin": "LHR",
+ "dest": "SFO",
+ "pax": 2,
+ "note": "London home to SFO, return",
+ "window": [
+  "2027-07"
+ ],
+ "updated": "2026-09-02",
+ "price": 842,
+ "best_date": "2026-11-26",
+ "basis": "barometer",
+ "carrier": "BA",
+ "transfers": 0,
+ "history": [
+  {
+   "day": "2026-09-02",
+   "price": 842,
+   "best_date": "2026-11-26",
+   "basis": "barometer"
+  }
+ ],
+ "events": [],
+ "schedule": null
+}

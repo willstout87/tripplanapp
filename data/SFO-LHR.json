@@ -1,0 +1,25 @@
+{
+ "origin": "SFO",
+ "dest": "LHR",
+ "pax": 2,
+ "note": "SFO to London, outbound",
+ "window": [
+  "2027-06"
+ ],
+ "updated": "2026-09-02",
+ "price": 646,
+ "best_date": "2026-11-24",
+ "basis": "barometer",
+ "carrier": "EI",
+ "transfers": 1,
+ "history": [
+  {
+   "day": "2026-09-02",
+   "price": 646,
+   "best_date": "2026-11-24",
+   "basis": "barometer"
+  }
+ ],
+ "events": [],
+ "schedule": null
+}

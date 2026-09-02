@@ -1,0 +1,25 @@
+{
+ "origin": "FCO",
+ "dest": "SFO",
+ "pax": 2,
+ "note": "Rome home to SFO, return",
+ "window": [
+  "2027-07"
+ ],
+ "updated": "2026-09-02",
+ "price": 912,
+ "best_date": "2026-12-15",
+ "basis": "barometer",
+ "carrier": "FR",
+ "transfers": 3,
+ "history": [
+  {
+   "day": "2026-09-02",
+   "price": 912,
+   "best_date": "2026-12-15",
+   "basis": "barometer"
+  }
+ ],
+ "events": [],
+ "schedule": null
+}

@@ -1,0 +1,25 @@
+{
+ "origin": "FCO",
+ "dest": "LAX",
+ "pax": 2,
+ "note": "Rome home to LAX, return",
+ "window": [
+  "2027-07"
+ ],
+ "updated": "2026-09-02",
+ "price": 876,
+ "best_date": "2026-12-16",
+ "basis": "barometer",
+ "carrier": "TP",
+ "transfers": 1,
+ "history": [
+  {
+   "day": "2026-09-02",
+   "price": 876,
+   "best_date": "2026-12-16",
+   "basis": "barometer"
+  }
+ ],
+ "events": [],
+ "schedule": null
+}

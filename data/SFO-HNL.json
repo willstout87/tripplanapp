@@ -1,0 +1,25 @@
+{
+ "origin": "SFO",
+ "dest": "HNL",
+ "pax": 2,
+ "note": "SFO to Honolulu, outbound",
+ "window": [
+  "2027-06"
+ ],
+ "updated": "2026-09-02",
+ "price": 266,
+ "best_date": "2026-11-15",
+ "basis": "barometer",
+ "carrier": "AS",
+ "transfers": 0,
+ "history": [
+  {
+   "day": "2026-09-02",
+   "price": 266,
+   "best_date": "2026-11-15",
+   "basis": "barometer"
+  }
+ ],
+ "events": [],
+ "schedule": null
+}
