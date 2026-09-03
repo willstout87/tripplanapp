@@ -165,29 +165,73 @@ for (const rt of routes) {
 // a built-in guess. Writes data/hotel-<IATA>.json alongside the fare files.
 
 async function hotelRate(h) {
-  const u = new URL('https://engine.hotellook.com/api/v2/cache.json');
-  u.searchParams.set('location', h.city);
-  u.searchParams.set('checkIn', h.checkIn);
-  u.searchParams.set('checkOut', h.checkOut);
-  u.searchParams.set('currency', 'usd');
-  u.searchParams.set('limit', '40');
-  u.searchParams.set('token', TOKEN);
-  const r = await fetch(u);
-  if (!r.ok) throw new Error(`hotels ${h.city}: HTTP ${r.status}`);
-  const rows = await r.json();
-  if (!Array.isArray(rows) || !rows.length) return null;
-
   const nights = Math.max(1, Math.round(
     (new Date(h.checkOut) - new Date(h.checkIn)) / 864e5));
-  // priceAvg is for the whole stay; normalise to one night, one room.
-  const nightly = rows
-    .map((x) => Number(x.priceAvg ?? x.priceFrom ?? 0) / nights)
-    .filter((v) => v > 5 && v < 4000)
-    .sort((a, b) => a - b);
-  if (!nightly.length) return null;
 
-  const at = (q) => Math.round(nightly[Math.floor((nightly.length - 1) * q)]);
-  return { median: at(0.5), low: at(0.1), high: at(0.9), sample: nightly.length };
+  // Resolve the city to a Hotellook locationId first. Passing a plain city
+  // name to cache.json is what 404s; an id (or IATA) is what it wants.
+  async function locationId(city) {
+    for (const scheme of ['https', 'http']) {
+      const u = new URL(scheme + '://engine.hotellook.com/api/v2/lookup.json');
+      u.searchParams.set('query', city);
+      u.searchParams.set('lang', 'en');
+      u.searchParams.set('lookFor', 'city');
+      u.searchParams.set('limit', '1');
+      u.searchParams.set('token', TOKEN);
+      try {
+        const r = await fetch(u);
+        if (!r.ok) continue;
+        const j = await r.json();
+        const loc = j?.results?.locations?.[0];
+        if (loc?.id) return loc.id;
+      } catch { /* next scheme */ }
+    }
+    return null;
+  }
+
+  const id = await locationId(h.city);
+  // Every documented shape, cheapest-to-verify first. The winner gets logged
+  // so the next run can be narrowed to it.
+  const attempts = [];
+  for (const scheme of ['https', 'http']) {
+    if (id) attempts.push([scheme, 'locationId', id]);
+    attempts.push([scheme, 'location', h.air]);   // IATA is accepted per docs
+    attempts.push([scheme, 'location', h.city]);
+  }
+
+  for (const [scheme, key, val] of attempts) {
+    const u = new URL(scheme + '://engine.hotellook.com/api/v2/cache.json');
+    u.searchParams.set(key, String(val));
+    u.searchParams.set('checkIn', h.checkIn);
+    u.searchParams.set('checkOut', h.checkOut);
+    u.searchParams.set('currency', 'usd');
+    u.searchParams.set('limit', '40');
+    u.searchParams.set('token', TOKEN);
+
+    let rows;
+    try {
+      const r = await fetch(u);
+      if (!r.ok) { console.log(`  hotels ${h.city}: ${scheme} ${key} -> HTTP ${r.status}`); continue; }
+      rows = await r.json();
+    } catch (e) { console.log(`  hotels ${h.city}: ${scheme} ${key} -> ${String(e).slice(0, 60)}`); continue; }
+
+    if (!Array.isArray(rows) || !rows.length) {
+      console.log(`  hotels ${h.city}: ${scheme} ${key} -> 200 but empty`);
+      continue;
+    }
+
+    // priceAvg covers the whole stay; normalise to one night, one room.
+    const nightly = rows
+      .map((x) => Number(x.priceAvg ?? x.priceFrom ?? 0) / nights)
+      .filter((v) => v > 5 && v < 4000)
+      .sort((a, b) => a - b);
+    if (!nightly.length) { console.log(`  hotels ${h.city}: ${scheme} ${key} -> no usable prices`); continue; }
+
+    const at = (q) => Math.round(nightly[Math.floor((nightly.length - 1) * q)]);
+    console.log(`  hotels ${h.city}: OK via ${scheme} ${key}=${val}`);
+    return { median: at(0.5), low: at(0.1), high: at(0.9), sample: nightly.length };
+  }
+  return null;
 }
 
 async function pollHotels() {

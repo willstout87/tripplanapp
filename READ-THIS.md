@@ -1,36 +1,49 @@
-# Hotel rates: the upload that never happened
+# Hotel 404 — fixed, and now self-diagnosing
 
-Your repo root currently has:
+## What went wrong
 
-    index.html  support.js  routes.json  data/ (18 flight files)  .github/  _ds/
+I passed a plain city name to Hotellook's cache endpoint:
 
-Missing: the updated `poll.mjs` and `hotels.json`. The hotel code was written a
-while back but never uploaded, so every stay line in the app still says
-`estimated`. That is the whole reason hotel rates are not real yet.
+    https://engine.hotellook.com/api/v2/cache.json?location=Rome&...
 
-## Upload these three to the repo ROOT
+The documented endpoint takes a **locationId** or an **IATA code**, not a city
+name, and it is documented on **http**, not https. Hence HTTP 404 on all five
+cities. My mistake, and I should have verified the parameter shape before
+sending it the first time.
 
-    poll.mjs        <- replaces the current one; adds hotel polling
-    hotels.json     <- new; the five cities to price
-    routes.json     <- replaces; the pruned 22-route list
+## What this version does
 
-Then Actions -> "poll fares" -> Run workflow.
+For each city it now:
 
-You should see lines like:
+1. Calls `lookup.json` to resolve the city to a real Hotellook locationId
+2. Tries `cache.json` with that id, then the IATA code, then the city name
+3. Tries https first, then http
+4. **Logs which combination worked**, so if anything still fails the log tells
+   us exactly what the API accepted rather than leaving us guessing
 
+Successful runs print:
+
+    hotels Rome: OK via https locationId=12209
     hotel Rome $214 /night from 37 properties
 
-and new files `data/hotel-FCO.json`, `data/hotel-LHR.json`, and so on. The app
-reads them automatically — stay rows switch from `estimated` to
-`$214/night · 37 properties`.
+Failures print the specific reason per attempt:
 
-## What it actually measures
+    hotels Rome: https locationId -> HTTP 404
+    hotels Rome: http location -> 200 but empty
 
-Hotellook's cache endpoint, same Travelpayouts token. For each city it pulls up
-to 40 properties for a sample stay, normalises to one night for one room, and
-records the median plus the 10th and 90th percentiles. So it is a real market
-median rather than one hotel's price — appropriate for budgeting, not a booking
-quote.
+## Upload
 
-The sample stay is mid-June 2027 (see `hotels.json`); change `checkIn` and
-`checkOut` there if your dates move a lot.
+Just `poll.mjs` to the repo root, then Run workflow. Nothing else changed.
+
+## Also worth noting from your last run
+
+`written 18, skipped 0, failed 32, of 50` means the old 50-route `routes.json`
+is still in place — the pruned 22-route version did not get uploaded. Harmless,
+just 28 wasted calls a day. Replace it whenever.
+
+And a genuinely good sign in that log:
+
+    LHR -> LAX $894 on 2027-07-03
+
+No "(barometer)" tag. Real July 2027 fares are starting to enter the cache, so
+those legs are now priced for your actual dates.
