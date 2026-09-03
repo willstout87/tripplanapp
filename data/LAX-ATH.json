@@ -6,9 +6,10 @@
  "window": [
   "2027-06"
  ],
- "updated": "2026-09-02",
+ "updated": "2026-09-03",
  "price": 984,
  "best_date": "2027-06-30",
+ "basis": "window",
  "carrier": "AS",
  "transfers": 1,
  "history": [
@@ -16,6 +17,12 @@
    "day": "2026-09-02",
    "price": 984,
    "best_date": "2027-06-30"
+  },
+  {
+   "day": "2026-09-03",
+   "price": 984,
+   "best_date": "2027-06-30",
+   "basis": "window"
   }
  ],
  "events": [],
