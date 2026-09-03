@@ -432,6 +432,14 @@ window.TripFares = createFares;
                 <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-neutral-600);margin-top:2px">{{ r.source }}</div>
               </div>
             </div>
+            <div style="display:{{ r.rateDisplay }};align-items:center;gap:9px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(32,30,29,.10)">
+              <div style="flex:1;min-width:0">
+                <div style="font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Rate per night</div>
+                <div style="font-size:10.5px;color:{{ r.rateNoteColor }};margin-top:2px">{{ r.rateNote }}</div>
+              </div>
+              <span style="font-family:var(--font-heading);font-weight:800;font-size:14px">$</span>
+              <input type="number" inputmode="decimal" placeholder="{{ r.ratePlaceholder }}" value="{{ r.rateVal }}" onChange="{{ r.onRate }}" style="width:96px;flex:none;padding:11px 10px;min-height:44px;border:0;border-radius:11px;background:rgba(32,30,29,.06);font:600 14px/1 var(--font-heading);color:var(--color-text);text-align:right;outline:none"></input>
+            </div>
             <div style="display:flex;align-items:center;gap:9px;margin-top:11px">
               <div style="flex:1;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Paid</div>
               <span style="font-family:var(--font-heading);font-weight:800;font-size:14px">$</span>
@@ -871,7 +879,7 @@ class Component extends DCLogic {
 
   state = {
     tab:'plan', origin:'SFO', anchor:'2027-03-01', dep:92, ret:112, flex:1, pax:2,
-    region:'All', sel:['ROM','LON','HNL','CUN'], extra:[], adj:{},
+    region:'All', sel:['ROM','LON','HNL','CUN'], extra:[], adj:{}, rates:{},
     picker:false, q:'', detail:null, scrub:null,
     flow:false, step:1, target:'itin', th:9200, rules:{drop:true,cap:true,comp:false,win:true}, ch:'push', saved:0, order:null,
     actuals:{}, extras:[], exLabel:'', exAmount:''
@@ -979,11 +987,19 @@ class Component extends DCLogic {
       return {adj, ret: Math.min(this.span(), s.dep + Math.max(2, cur, pinned+unset))};
     });
   }
-  // Real nightly rate when the hotel poller has one, else the built-in estimate.
+  // Nightly rate priority: what you entered, then a live feed if one ever
+  // exists, then a built-in estimate. Hotellook shut down in Oct 2025, so in
+  // practice it is yours or an estimate.
   rateOf(c){
+    const mine=(this.state.rates||{})[c.id];
+    if(mine!=null && mine!=='' && !isNaN(Number(mine)) && Number(mine)>0)
+      return { rate:Number(mine), live:true, mine:true };
     const live = this.fares && this.fares.nightly && this.fares.nightly(c.air);
-    return live ? { rate: live.rate, live: true, sample: live.sample } : { rate: c.rate, live: false };
+    return live ? { rate: live.rate, live: true, sample: live.sample }
+                : { rate: c.rate, live: false };
   }
+  rateTag(c){ const r=this.rateOf(c);
+    return r.mine ? 'your rate' : (r.live ? `${r.sample} properties` : 'estimated'); }
   stayOf(c,nights){ return nights*this.rateOf(c).rate*this.rooms(); }
   localOf(c,nights){ return nights*48*this.state.pax; }
   // A polled quote is already priced for its date and party — return it as
@@ -1112,9 +1128,10 @@ class Component extends DCLogic {
       const rt=this.rateOf(c);
       items.push({id:`stay-${c.id}`, group:'Stays', tint:'var(--plum)',
         label:`${c.name} · ${P.nights[i]} nights`,
-        detail:`${this.dayName(day)} – ${this.dayName(day+P.nights[i])} · ${this.money(rt.rate*this.rooms())}/night`,
-        source:rt.live?`${rt.sample} properties`:'estimated',
-        planned:this.stayOf(c,P.nights[i])});
+        detail:`${this.dayName(day)} – ${this.dayName(day+P.nights[i])} · ${P.nights[i]} nights × ${this.rooms()} room${this.rooms()>1?'s':''}`,
+        source:this.rateTag(c),
+        planned:this.stayOf(c,P.nights[i]),
+        cityId:c.id, rate:rt.rate, rateMine:rt.mine});
       items.push({id:`local-${c.id}`, group:'Local & tickets', tint:'var(--amber)',
         label:`${c.name} on the ground`,
         detail:`${P.nights[i]} days · transit, food, venues`,
@@ -1498,7 +1515,14 @@ class Component extends DCLogic {
                   this.setState(st=>({actuals:{...st.actuals,[it.id]:val}})); },
                 variance: v===null?'' : (v===0?'on plan' : (v>0?'+':'−')+this.money(Math.abs(v))),
                 varColor: v===null?mut : (v>0?acc:'var(--color-neutral-800)'),
-                rowBg: p==null?'rgba(255,255,255,.72)':'linear-gradient(180deg,#f6fbf7,#eef7f1)'};
+                rowBg: p==null?'rgba(255,255,255,.72)':'linear-gradient(180deg,#f6fbf7,#eef7f1)',
+                rateDisplay: it.cityId?'flex':'none',
+                rateVal: it.cityId ? ((S.rates||{})[it.cityId] ?? '') : '',
+                ratePlaceholder: it.cityId ? String(Math.round(it.rate)) : '',
+                rateNote: it.rateMine ? 'your rate' : 'my estimate — set yours',
+                rateNoteColor: it.rateMine ? 'var(--color-neutral-800)' : acc,
+                onRate: it.cityId ? (e)=>{ const val=e.target.value;
+                  this.setState(st=>({rates:{...st.rates,[it.cityId]:val}})); } : (()=>{})};
             })};
         }).filter(Boolean);
       })(),
