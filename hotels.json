@@ -1,0 +1,37 @@
+[
+ {
+  "air": "FCO",
+  "city": "Rome",
+  "checkIn": "2027-06-14",
+  "checkOut": "2027-06-18",
+  "guests": 2
+ },
+ {
+  "air": "ATH",
+  "city": "Athens",
+  "checkIn": "2027-06-14",
+  "checkOut": "2027-06-18",
+  "guests": 2
+ },
+ {
+  "air": "LHR",
+  "city": "London",
+  "checkIn": "2027-06-14",
+  "checkOut": "2027-06-18",
+  "guests": 2
+ },
+ {
+  "air": "HNL",
+  "city": "Honolulu",
+  "checkIn": "2027-06-14",
+  "checkOut": "2027-06-18",
+  "guests": 2
+ },
+ {
+  "air": "CUN",
+  "city": "Cancun",
+  "checkIn": "2027-06-14",
+  "checkOut": "2027-06-18",
+  "guests": 2
+ }
+]

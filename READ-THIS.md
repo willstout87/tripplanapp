@@ -1,44 +1,36 @@
-# Build 4 — skip the bundler entirely
+# Hotel rates: the upload that never happened
 
-## Why
+Your repo root currently has:
 
-Your new error came from code the single-file bundler generates at runtime, not
-from anything in the app:
+    index.html  support.js  routes.json  data/ (18 flight files)  .github/  _ds/
 
-    Unexpected token '-'
-    const declared variable 'sc' must have an initializer
+Missing: the updated `poll.mjs` and `hotels.json`. The hotel code was written a
+while back but never uploaded, so every stay line in the app still says
+`estimated`. That is the whole reason hotel rates are not real yet.
 
-That is a generated declaration built from a tag name (`sc-for` / `sc-if`, the
-template's loop and conditional elements). It is inside the bundler's own
-unpacking layer, so I cannot patch it from the app's side.
+## Upload these three to the repo ROOT
 
-The fix is to stop bundling. GitHub Pages can serve the app as ordinary files,
-which is exactly the code path that works in the editor — no generated code, no
-unpacking step, and it loads faster.
+    poll.mjs        <- replaces the current one; adds hotel polling
+    hotels.json     <- new; the five cities to price
+    routes.json     <- replaces; the pruned 22-route list
 
-## Upload these three, keeping the folders
+Then Actions -> "poll fares" -> Run workflow.
 
-    index.html
-    support.js
-    _ds/modernist-129e2e6c-b4a0-4c55-b006-8e8913ecc223/styles.css
+You should see lines like:
 
-Put them at the ROOT of tripplanapp (index.html replaces the bundled one you
-uploaded before). The `_ds` path must be kept exactly — nested folders and all.
+    hotel Rome $214 /night from 37 properties
 
-**Easiest way:** open the repo and press `.` to launch github.dev, then drag the
-unzipped folder contents into the file tree. It preserves nested folders, which
-the drag-and-drop upload page does not always do.
+and new files `data/hotel-FCO.json`, `data/hotel-LHR.json`, and so on. The app
+reads them automatically — stay rows switch from `estimated` to
+`$214/night · 37 properties`.
 
-## Then
+## What it actually measures
 
-1. Delete the Home Screen icon if you added one.
-2. Open `https://willstout87.github.io/tripplanapp/?v=4`
-3. Confirm it loads, then Share -> Add to Home Screen.
+Hotellook's cache endpoint, same Travelpayouts token. For each city it pulls up
+to 40 properties for a sample stay, normalises to one night for one room, and
+records the median plus the 10th and 90th percentiles. So it is a real market
+median rather than one hotel's price — appropriate for budgeting, not a booking
+quote.
 
-## Checking it worked
-
-The header chip should read **LIVE · 4 BAROMETER** and the four city cards
-should show Rome $1,672, London $646, Honolulu $266, Cancun $1,294.
-
-If a stylesheet fails to load you will see unstyled text — that means the `_ds`
-folder did not land at the right path. Everything else would still work.
+The sample stay is mid-June 2027 (see `hotels.json`); change `checkIn` and
+`checkOut` there if your dates move a lot.

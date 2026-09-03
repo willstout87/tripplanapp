@@ -159,6 +159,62 @@ for (const rt of routes) {
   console.log(rt.origin, '->', rt.dest, '$' + q.price, 'on', q.date, q.basis === 'barometer' ? '(barometer)' : '');
 }
 
+// ── hotels: Travelpayouts / Hotellook cached nightly rates ───────────────────
+// Same token, different host. The cache.json endpoint returns recently-seen
+// prices per city for a date range — enough for a real nightly rate instead of
+// a built-in guess. Writes data/hotel-<IATA>.json alongside the fare files.
+
+async function hotelRate(h) {
+  const u = new URL('https://engine.hotellook.com/api/v2/cache.json');
+  u.searchParams.set('location', h.city);
+  u.searchParams.set('checkIn', h.checkIn);
+  u.searchParams.set('checkOut', h.checkOut);
+  u.searchParams.set('currency', 'usd');
+  u.searchParams.set('limit', '40');
+  u.searchParams.set('token', TOKEN);
+  const r = await fetch(u);
+  if (!r.ok) throw new Error(`hotels ${h.city}: HTTP ${r.status}`);
+  const rows = await r.json();
+  if (!Array.isArray(rows) || !rows.length) return null;
+
+  const nights = Math.max(1, Math.round(
+    (new Date(h.checkOut) - new Date(h.checkIn)) / 864e5));
+  // priceAvg is for the whole stay; normalise to one night, one room.
+  const nightly = rows
+    .map((x) => Number(x.priceAvg ?? x.priceFrom ?? 0) / nights)
+    .filter((v) => v > 5 && v < 4000)
+    .sort((a, b) => a - b);
+  if (!nightly.length) return null;
+
+  const at = (q) => Math.round(nightly[Math.floor((nightly.length - 1) * q)]);
+  return { median: at(0.5), low: at(0.1), high: at(0.9), sample: nightly.length };
+}
+
+async function pollHotels() {
+  const list = await load(new URL('./hotels.json', import.meta.url), []);
+  for (const h of list) {
+    const file = new URL(`./data/hotel-${h.air}.json`, import.meta.url);
+    const prev = await load(file, { history: [] });
+    if (prev.history.at(-1)?.day === TODAY) continue;
+
+    let q = null;
+    try { q = await hotelRate(h); } catch (e) { console.error(String(e)); }
+    if (!q) { console.log('hotel', h.city, 'no data'); continue; }
+
+    await writeFile(file, JSON.stringify({
+      air: h.air, city: h.city, guests: h.guests,
+      check_in: h.checkIn, check_out: h.checkOut, updated: TODAY,
+      nightly: q.median, nightly_low: q.low, nightly_high: q.high, sample: q.sample,
+      history: [...prev.history, { day: TODAY, nightly: q.median }].slice(-400),
+    }, null, 1) + '\n');
+
+    console.log('hotel', h.city, '$' + q.median, '/night from', q.sample, 'properties');
+    await new Promise((r) => setTimeout(r, 500));
+  }
+}
+
+await pollHotels();
+
 console.log(`written ${written}, skipped ${skipped}, failed ${failed}, of ${routes.length}`);
 if (failed) console.log('Failed routes are usually thin cache coverage, not bugs — prune them from routes.json.');
 if (written === 0 && failed > 0) process.exit(1);
