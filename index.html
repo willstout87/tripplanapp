@@ -231,51 +231,20 @@ window.TripFares = createFares;
             </label>
           </div>
 
-          <div onPointerDown="{{ onRangeDown }}" onPointerMove="{{ onRangeMove }}" onPointerUp="{{ onRangeUp }}" style="position:relative;height:30px;margin-top:10px;touch-action:none;cursor:grab;user-select:none">
-            <div style="position:absolute;left:0;right:0;top:14px;height:2px;background:var(--color-neutral-400)"></div>
-            <div style="position:absolute;top:14px;height:2px;background:var(--color-accent);left:{{ depPct }}%;width:{{ spanPct }}%"></div>
-            <div style="position:absolute;top:4px;width:4px;height:22px;background:var(--color-accent);left:{{ depPct }}%"></div>
-            <div style="position:absolute;top:4px;width:4px;height:22px;background:var(--color-accent);left:{{ retPct }}%"></div>
-          </div>
-
-          <div style="display:flex;align-items:center;gap:6px">
-            <button onClick="{{ windowBack }}" style="width:24px;height:24px;flex:none;border:0;border-radius:8px;background:rgba(32,30,29,.06);cursor:pointer;font:600 11px/1 var(--font-heading)">‹</button>
-            <div style="flex:1;text-align:center;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-neutral-700)">{{ windowLabel }}</div>
-            <button onClick="{{ windowFwd }}" style="width:24px;height:24px;flex:none;border:0;border-radius:8px;background:rgba(32,30,29,.06);cursor:pointer;font:600 11px/1 var(--font-heading)">›</button>
-          </div>
-
-          <div style="display:flex;align-items:center;gap:6px;margin-top:9px">
+          <div style="display:flex;align-items:center;gap:6px;margin-top:11px">
             <div style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700);margin-right:auto">{{ nightsTotal }} nights · {{ seasonNote }}</div>
             <sc-for list="{{ flexOpts }}" as="fx" hint-placeholder-count="3">
-              <button onClick="{{ fx.onPick }}" style="padding:4px 8px;border:0;border-radius:8px;cursor:pointer;font:600 10px/1 var(--font-heading);letter-spacing:.05em;text-transform:uppercase;background:{{ fx.bg }};color:{{ fx.fg }}">{{ fx.label }}</button>
-            </sc-for>
-          </div>
-
-          <div style="display:flex;gap:5px;margin-top:8px">
-            <sc-for list="{{ spanOpts }}" as="sp" hint-placeholder-count="4">
-              <button onClick="{{ sp.onPick }}" style="flex:1;padding:6px 2px;border:0;border-radius:9px;cursor:pointer;font:600 10px/1 var(--font-heading);letter-spacing:.05em;text-transform:uppercase;background:{{ sp.bg }};color:{{ sp.fg }}">{{ sp.label }}</button>
+              <button onClick="{{ fx.onPick }}" style="padding:8px 10px;min-height:36px;border:0;border-radius:9px;cursor:pointer;font:600 10px/1 var(--font-heading);letter-spacing:.05em;text-transform:uppercase;background:{{ fx.bg }};color:{{ fx.fg }}">{{ fx.label }}</button>
             </sc-for>
           </div>
         </div>
 
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 20px;border-bottom:1px solid rgba(32,30,29,.10)">
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 20px 13px">
           <div style="width:64px;flex:none;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700)">Who</div>
           <div style="display:flex;align-items:center;gap:10px;flex:1">
-            <button onClick="{{ paxMinus }}" style="width:26px;height:26px;border:1px solid var(--color-divider);background:transparent;cursor:pointer;font:600 13px/1 var(--font-heading)">−</button>
-            <span style="font-family:var(--font-heading);font-weight:800;font-size:15px;min-width:96px">{{ paxLabel }}</span>
-            <button onClick="{{ paxPlus }}" style="width:26px;height:26px;border:1px solid var(--color-divider);background:transparent;cursor:pointer;font:600 13px/1 var(--font-heading)">+</button>
-          </div>
-        </div>
-
-        <div style="padding:11px 20px 13px">
-          <div style="display:flex;align-items:baseline;justify-content:space-between">
-            <div style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700)">Budget</div>
-            <div style="font-family:var(--font-heading);font-weight:800;font-size:15px">{{ budgetStr }}</div>
-          </div>
-          <div onPointerDown="{{ onBudDown }}" onPointerMove="{{ onBudMove }}" onPointerUp="{{ onBudUp }}" style="position:relative;height:26px;margin-top:6px;touch-action:none;cursor:grab;user-select:none">
-            <div style="position:absolute;left:0;right:0;top:12px;height:2px;background:var(--color-neutral-400)"></div>
-            <div style="position:absolute;top:12px;height:2px;background:var(--color-accent);left:0;width:{{ budPct }}%"></div>
-            <div style="position:absolute;top:2px;width:4px;height:22px;background:var(--color-accent);left:{{ budPct }}%"></div>
+            <button onClick="{{ paxMinus }}" style="width:40px;height:40px;border:0;border-radius:11px;background:rgba(32,30,29,.07);cursor:pointer;font:600 17px/1 var(--font-heading)">−</button>
+            <span style="font-family:var(--font-heading);font-weight:800;font-size:15px;min-width:96px;text-align:center">{{ paxLabel }}</span>
+            <button onClick="{{ paxPlus }}" style="width:40px;height:40px;border:0;border-radius:11px;background:rgba(32,30,29,.07);cursor:pointer;font:600 17px/1 var(--font-heading)">+</button>
           </div>
         </div>
       </div>
@@ -361,18 +330,6 @@ window.TripFares = createFares;
       </sc-for>
       <div style="height:12px"></div>
     </div>
-
-    <div style="padding:11px 20px 10px;background:rgba(255,255,255,.66);backdrop-filter:blur(20px) saturate(1.6);box-shadow:inset 0 1px 0 var(--glass-line),0 -6px 20px rgba(45,43,43,.08)">
-      <div style="display:flex;justify-content:space-between;align-items:baseline">
-        <div style="font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700)">Trip total</div>
-        <div style="font-size:11.5px;color:{{ budgetColor }}"><b style="font-family:var(--font-heading);font-size:17px">{{ totalStr }}</b> / {{ budgetStr }}</div>
-      </div>
-      <div style="height:8px;border-radius:999px;overflow:hidden;background:rgba(32,30,29,.14);margin-top:8px;display:flex;box-shadow:inset 0 1px 2px rgba(45,43,43,.18)">
-        <div style="background:linear-gradient(180deg,#ff6a4d,#ec3013);width:{{ segAirPct }}%"></div>
-        <div style="background:var(--ocean);width:{{ segStayPct }}%"></div>
-        <div style="background:var(--amber);width:{{ segLocalPct }}%"></div>
-      </div>
-    </div>
   </div>
   </sc-if>
 
@@ -384,38 +341,38 @@ window.TripFares = createFares;
       <div style="font-family:var(--font-heading);font-weight:800;font-size:25px;line-height:1.05;letter-spacing:-.02em;margin-top:5px">{{ tripTitle }}</div>
       <div style="display:flex;align-items:baseline;gap:8px;margin-top:9px">
         <div style="font-family:var(--font-heading);font-weight:800;font-size:22px">{{ totalStr }}</div>
-        <div style="font-size:11.5px;color:var(--color-neutral-700)">{{ headroom }}</div>
+        <div style="font-size:12.5px;color:var(--color-neutral-700)">{{ headroom }}</div>
       </div>
-      <div style="font-size:10.5px;color:var(--color-neutral-700);margin-top:7px">{{ nightsHint }}</div>
+      <div style="font-size:12px;color:var(--color-neutral-700);margin-top:8px;line-height:1.4">{{ nightsHint }}</div>
     </div>
 
     <div style="display:{{ recDisplay }};align-items:center;gap:10px;padding:10px 20px;background:var(--color-accent-100);border-bottom:1px solid var(--color-divider)">
       <div style="flex:1;min-width:0">
-        <div style="font-family:var(--font-heading);font-weight:800;font-size:12.5px;color:var(--color-accent-700)">{{ recTitle }}</div>
-        <div style="font-size:10.5px;color:var(--color-neutral-700);margin-top:2px">{{ recBody }}</div>
+        <div style="font-family:var(--font-heading);font-weight:800;font-size:14px;color:var(--color-accent-700)">{{ recTitle }}</div>
+        <div style="font-size:12px;color:var(--color-neutral-700);margin-top:3px">{{ recBody }}</div>
       </div>
-      <button onClick="{{ useRecommended }}" style="flex:none;padding:7px 11px;border:0;border-radius:10px;cursor:pointer;font:600 10.5px/1 var(--font-heading);letter-spacing:.05em;text-transform:uppercase;background:linear-gradient(180deg,#ff6247,#ec3013 60%,#cf2409);color:#fff">Apply</button>
+      <button onClick="{{ useRecommended }}" style="flex:none;padding:13px 15px;min-height:44px;border:0;border-radius:10px;cursor:pointer;font:600 10.5px/1 var(--font-heading);letter-spacing:.05em;text-transform:uppercase;background:linear-gradient(180deg,#ff6247,#ec3013 60%,#cf2409);color:#fff">Apply</button>
     </div>
 
     <div style="flex:1;overflow-y:auto">
       <sc-for list="{{ legs }}" as="l" hint-placeholder-count="6">
         <div onClick="{{ l.onOpen }}" style="display:flex;gap:12px;padding:12px 20px;border-bottom:1px solid var(--color-divider);cursor:pointer">
-          <div style="flex:none;align-self:flex-start;font-size:9px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:{{ l.modeColor }};background:color-mix(in oklch,{{ l.modeColor }} 15%,transparent);border-radius:7px;padding:4px 7px;min-width:44px;text-align:center">{{ l.mode }}</div>
+          <div style="flex:none;align-self:flex-start;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:{{ l.modeColor }};background:color-mix(in oklch,{{ l.modeColor }} 15%,transparent);border-radius:8px;padding:6px 9px;min-width:52px;text-align:center">{{ l.mode }}</div>
           <div style="flex:1;min-width:0">
-            <div style="font-family:var(--font-heading);font-weight:800;font-size:15px">{{ l.title }}</div>
-            <div style="font-size:11px;color:var(--color-neutral-700);margin-top:2px">{{ l.sub }}</div>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:17px;line-height:1.2">{{ l.title }}</div>
+            <div style="font-size:12.5px;color:var(--color-neutral-700);margin-top:4px;line-height:1.35">{{ l.sub }}</div>
           </div>
           <div style="text-align:right;flex:none">
-            <div style="font-family:var(--font-heading);font-weight:800;font-size:15.5px">{{ l.priceStr }}</div>
-            <div style="font-size:10.5px;font-weight:600;color:{{ l.deltaColor }}">{{ l.delta }}</div>
-            <div style="display:flex;align-items:center;gap:7px;margin-top:6px">
-              <button onClick="{{ l.onMinus }}" style="width:24px;height:24px;flex:none;border:1px solid var(--color-divider);background:transparent;color:inherit;font:600 13px/1 var(--font-heading);cursor:pointer">−</button>
-              <span style="font-size:11px;letter-spacing:.03em;min-width:52px">{{ l.nightsStr }}</span>
-              <button onClick="{{ l.onPlus }}" style="width:24px;height:24px;flex:none;border:1px solid var(--color-divider);background:transparent;color:inherit;font:600 13px/1 var(--font-heading);cursor:pointer">+</button>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:17px">{{ l.priceStr }}</div>
+            <div style="font-size:11.5px;font-weight:600;color:{{ l.deltaColor }};margin-top:2px">{{ l.delta }}</div>
+            <div style="display:{{ l.stepDisplay }};align-items:center;gap:8px;margin-top:9px;justify-content:flex-end">
+              <button onClick="{{ l.onMinus }}" onPointerDown="{{ l.stop }}" style="width:44px;height:44px;flex:none;border:0;border-radius:12px;background:rgba(32,30,29,.07);color:var(--color-text);font:600 18px/1 var(--font-heading);cursor:pointer">−</button>
+              <span style="font-size:13px;letter-spacing:.02em;min-width:62px;text-align:center;font-weight:600">{{ l.nightsStr }}</span>
+              <button onClick="{{ l.onPlus }}" onPointerDown="{{ l.stop }}" style="width:44px;height:44px;flex:none;border:0;border-radius:12px;background:rgba(32,30,29,.07);color:var(--color-text);font:600 18px/1 var(--font-heading);cursor:pointer">+</button>
             </div>
-            <div style="display:{{ l.stepDisplay }};align-items:center;gap:7px;margin-top:5px;justify-content:flex-end">
-              <button onClick="{{ l.onUp }}" style="width:24px;height:24px;flex:none;border:0;border-radius:7px;background:{{ l.upBg }};color:{{ l.upFg }};font:600 11px/1 var(--font-heading);cursor:pointer">↑</button>
-              <button onClick="{{ l.onDown }}" style="width:24px;height:24px;flex:none;border:0;border-radius:7px;background:{{ l.downBg }};color:{{ l.downFg }};font:600 11px/1 var(--font-heading);cursor:pointer">↓</button>
+            <div style="display:{{ l.stepDisplay }};align-items:center;gap:8px;margin-top:7px;justify-content:flex-end">
+              <button onClick="{{ l.onUp }}" onPointerDown="{{ l.stop }}" style="width:44px;height:44px;flex:none;border:0;border-radius:12px;background:{{ l.upBg }};color:{{ l.upFg }};font:600 17px/1 var(--font-heading);cursor:pointer">↑</button>
+              <button onClick="{{ l.onDown }}" onPointerDown="{{ l.stop }}" style="width:44px;height:44px;flex:none;border:0;border-radius:12px;background:{{ l.downBg }};color:{{ l.downFg }};font:600 17px/1 var(--font-heading);cursor:pointer">↓</button>
             </div>
           </div>
         </div>
@@ -445,32 +402,44 @@ window.TripFares = createFares;
         <div style="background:linear-gradient(180deg,#3a3532,#221f1d);width:{{ barActual }}%"></div>
         <div style="background:linear-gradient(180deg,#ff6a4d,#ec3013);width:{{ barPlanned }}%"></div>
       </div>
-      <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--color-neutral-700);margin-top:6px">
-        <span>{{ budgetLine }}</span><span style="color:{{ projColor }};font-weight:600">{{ remainLine }}</span>
+      <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--color-neutral-700);margin-top:6px">
+        <span>{{ budgetLine }}</span><span>{{ remainLine }}</span>
       </div>
     </div>
 
     <div style="flex:1;overflow-y:auto">
-      <div style="padding:13px 20px 7px;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700)">By category</div>
-      <sc-for list="{{ categories }}" as="cat" hint-placeholder-count="4">
-        <div style="margin:0 16px 8px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.72);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 1px 3px rgba(45,43,43,.07)">
-          <div style="display:flex;align-items:baseline;gap:9px">
-            <span style="width:9px;height:9px;flex:none;border-radius:50%;background:{{ cat.tint }}"></span>
-            <div style="flex:1;min-width:0">
-              <div style="font-family:var(--font-heading);font-weight:800;font-size:14.5px">{{ cat.name }}</div>
-              <div style="font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--color-neutral-600);margin-top:2px">{{ cat.note }}</div>
-            </div>
-            <div style="text-align:right;flex:none">
-              <div style="font-family:var(--font-heading);font-weight:800;font-size:15px">{{ cat.plannedStr }}</div>
-              <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-neutral-600)">planned</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;margin-top:10px">
-            <div style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700);flex:1">Actually paid</div>
-            <input type="number" inputmode="decimal" placeholder="{{ cat.placeholder }}" value="{{ cat.actual }}" onChange="{{ cat.onSet }}" style="width:104px;padding:7px 9px;border:0;border-radius:10px;background:rgba(32,30,29,.06);font:600 13px/1 var(--font-heading);color:var(--color-text);text-align:right;outline:none"></input>
-            <div style="width:52px;text-align:right;font-size:11px;font-weight:600;color:{{ cat.varColor }}">{{ cat.variance }}</div>
-          </div>
+      <div style="padding:13px 20px 7px">
+        <div style="font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700)">From your plan · {{ itemCount }} lines</div>
+        <div style="font-size:12px;color:var(--color-neutral-700);margin-top:4px;line-height:1.4">{{ planSummary }}</div>
+      </div>
+
+      <sc-for list="{{ budgetGroups }}" as="g" hint-placeholder-count="4">
+        <div style="display:flex;align-items:baseline;gap:9px;padding:12px 20px 7px">
+          <span style="width:9px;height:9px;flex:none;border-radius:50%;background:{{ g.tint }}"></span>
+          <div style="flex:1;min-width:0;font-family:var(--font-heading);font-weight:800;font-size:14px">{{ g.name }}</div>
+          <div style="font-size:11px;color:var(--color-neutral-700)">{{ g.paidStr }}</div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:14px">{{ g.plannedStr }}</div>
         </div>
+        <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="2">
+          <div style="margin:0 16px 8px;padding:12px 14px;border-radius:16px;background:{{ r.rowBg }};box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 1px 3px rgba(45,43,43,.07)">
+            <div style="display:flex;align-items:baseline;gap:10px">
+              <div style="flex:1;min-width:0">
+                <div style="font-family:var(--font-heading);font-weight:800;font-size:15px">{{ r.label }}</div>
+                <div style="font-size:11.5px;color:var(--color-neutral-700);margin-top:3px;line-height:1.35">{{ r.detail }}</div>
+              </div>
+              <div style="text-align:right;flex:none">
+                <div style="font-family:var(--font-heading);font-weight:800;font-size:15px">{{ r.plannedStr }}</div>
+                <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-neutral-600);margin-top:2px">{{ r.source }}</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:9px;margin-top:11px">
+              <div style="flex:1;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Paid</div>
+              <span style="font-family:var(--font-heading);font-weight:800;font-size:14px">$</span>
+              <input type="number" inputmode="decimal" placeholder="{{ r.placeholder }}" value="{{ r.actual }}" onChange="{{ r.onSet }}" style="width:96px;flex:none;padding:11px 10px;min-height:44px;border:0;border-radius:11px;background:rgba(32,30,29,.06);font:600 14px/1 var(--font-heading);color:var(--color-text);text-align:right;outline:none"></input>
+              <div style="width:64px;text-align:right;font-size:11.5px;font-weight:600;color:{{ r.varColor }}">{{ r.variance }}</div>
+            </div>
+          </div>
+        </sc-for>
       </sc-for>
 
       <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:14px 20px 7px">
@@ -490,26 +459,16 @@ window.TripFares = createFares;
         <button onClick="{{ addExtra }}" style="flex:none;padding:10px 14px;border:0;border-radius:12px;cursor:pointer;font:600 12px/1 var(--font-heading);background:linear-gradient(180deg,#ff6247,#ec3013 60%,#cf2409);color:#fff">Add</button>
       </div>
 
-      <div style="padding:14px 20px 7px;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700)">Per stop</div>
-      <sc-for list="{{ perStop }}" as="p" hint-placeholder-count="4">
-        <div style="display:flex;align-items:baseline;gap:10px;padding:10px 20px;border-top:1px solid var(--color-divider)">
-          <div style="flex:1;min-width:0">
-            <div style="font-family:var(--font-heading);font-weight:800;font-size:13.5px">{{ p.name }}</div>
-            <div style="font-size:10.5px;color:var(--color-neutral-700);margin-top:2px">{{ p.detail }}</div>
-          </div>
-          <div style="font-family:var(--font-heading);font-weight:800;font-size:14px;flex:none">{{ p.totalStr }}</div>
-        </div>
-      </sc-for>
+      <div style="height:14px"></div>
 
       <div style="padding:16px 20px 10px">
-        <div style="display:flex;align-items:baseline;justify-content:space-between">
-          <div style="font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700)">Budget ceiling</div>
-          <div style="font-family:var(--font-heading);font-weight:800;font-size:16px">{{ budgetStr }}</div>
+        <div style="display:flex;align-items:baseline;gap:10px;padding-bottom:10px;border-bottom:2px solid var(--color-divider)">
+          <div style="flex:1;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700)">Total trip cost</div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:26px;line-height:1;letter-spacing:-.02em">{{ projStr }}</div>
         </div>
-        <div onPointerDown="{{ onBudDown }}" onPointerMove="{{ onBudMove }}" onPointerUp="{{ onBudUp }}" style="position:relative;height:28px;margin-top:7px;touch-action:none;cursor:grab;user-select:none">
-          <div style="position:absolute;left:0;right:0;top:13px;height:2px;background:var(--color-neutral-400)"></div>
-          <div style="position:absolute;top:13px;height:2px;background:var(--color-accent);left:0;width:{{ budPct }}%"></div>
-          <div style="position:absolute;top:3px;width:4px;height:22px;background:var(--color-accent);left:{{ budPct }}%"></div>
+        <div style="display:flex;align-items:baseline;gap:10px;padding-top:9px">
+          <div style="flex:1;font-size:11.5px;color:var(--color-neutral-700)">{{ splitNote }}</div>
+          <div style="font-size:12.5px;font-weight:600">{{ perPersonStr }} each</div>
         </div>
       </div>
       <div style="height:14px"></div>
@@ -763,7 +722,7 @@ window.TripFares = createFares;
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:1012},&quot;faresApi&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://raw.githubusercontent.com/willstout87/tripplanapp/main/data&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Data&quot;,&quot;label&quot;:&quot;Fares source (folder of JSON, or API base URL)&quot;},&quot;budgetDefault&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:12000,&quot;min&quot;:4000,&quot;max&quot;:30000,&quot;step&quot;:500,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Data&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:1012},&quot;faresApi&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://raw.githubusercontent.com/willstout87/tripplanapp/main/data&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Data&quot;,&quot;label&quot;:&quot;Fares source (folder of JSON, or API base URL)&quot;}}">
 class Component extends DCLogic {
   // [id,name,air,region,lat,lon,nightlyRate(2px),haulFromSFO(2px),seed]
   catalog = [
@@ -911,8 +870,8 @@ class Component extends DCLogic {
   evPool = [];
 
   state = {
-    tab:'plan', origin:'SFO', anchor:'2027-03-01', span:150, dep:92, ret:112, flex:1, pax:2,
-    budget:(this.props && this.props.budgetDefault) || 12000,    region:'All', sel:['ROM','LON','HNL','CUN'], extra:[], adj:{},
+    tab:'plan', origin:'SFO', anchor:'2027-03-01', dep:92, ret:112, flex:1, pax:2,
+    region:'All', sel:['ROM','LON','HNL','CUN'], extra:[], adj:{},
     picker:false, q:'', detail:null, scrub:null,
     flow:false, step:1, target:'itin', th:9200, rules:{drop:true,cap:true,comp:false,win:true}, ch:'push', saved:0, order:null,
     actuals:{}, extras:[], exLabel:'', exAmount:''
@@ -928,7 +887,7 @@ class Component extends DCLogic {
   // The drag track is a movable window: `anchor` is the ISO date at index 0,
   // `span` how many days it covers. Both are user-controlled.
   anchorMs(){ return new Date((this.state.anchor||'2027-03-01')+'T00:00:00Z').getTime(); }
-  span(){ return this.state.span || 150; }
+  span(){ return 730; }
   isoAt(i){ return new Date(this.anchorMs()+i*864e5).toISOString().slice(0,10); }
   idxOf(iso){ return Math.round((new Date(iso+'T00:00:00Z').getTime()-this.anchorMs())/864e5); }
   dayName(i){ return new Date(this.anchorMs()+i*864e5)
@@ -936,28 +895,6 @@ class Component extends DCLogic {
   longDate(i){ return new Date(this.anchorMs()+i*864e5)
     .toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'}); }
 
-  // Move the window without moving the trip: keep the same real dates.
-  shiftWindow(days){
-    const depIso=this.isoAt(this.state.dep), retIso=this.isoAt(this.state.ret);
-    const anchor=new Date(this.anchorMs()+days*864e5).toISOString().slice(0,10);
-    const base=new Date(anchor+'T00:00:00Z').getTime();
-    const idx=iso=>Math.round((new Date(iso+'T00:00:00Z').getTime()-base)/864e5);
-    this.setState({anchor, dep:idx(depIso), ret:idx(retIso)});
-  }
-  setSpan(span){
-    const depIso=this.isoAt(this.state.dep), retIso=this.isoAt(this.state.ret);
-    const depMs=new Date(depIso+'T00:00:00Z').getTime();
-    const retMs=new Date(retIso+'T00:00:00Z').getTime();
-    // Keep the chosen dates: re-anchor if the shorter window can't hold them.
-    let base=this.anchorMs();
-    const needs=(b)=>{ const a=Math.round((depMs-b)/864e5), z=Math.round((retMs-b)/864e5);
-      return a>=0 && z<=span && a<z; };
-    if(!needs(base)) base=depMs-Math.round(span*0.2)*864e5;
-    const anchor=new Date(base).toISOString().slice(0,10);
-    const dep=Math.max(0, Math.round((depMs-base)/864e5));
-    const ret=Math.min(span, Math.max(dep+2, Math.round((retMs-base)/864e5)));
-    this.setState({span, anchor, dep, ret});
-  }
   // A typed date can sit outside the window — slide the window to contain it.
   setDate(which, iso){
     if(!iso || !/^\d{4}-\d{2}-\d{2}$/.test(iso)) return;
@@ -1152,20 +1089,59 @@ class Component extends DCLogic {
     return live ? `Hotels · ${live===stops.length?'polled':`${live} of ${stops.length} polled`}`
                 : 'Hotels · estimated';
   }
+  // Every line the plan implies, as a trackable item with a stable id.
+  budgetItems(){
+    const P=this.plan(), S=this.state;
+    if(!P) return [];
+    const items=[]; let day=S.dep;
+    const first=P.order[0], last=P.order[P.order.length-1];
+
+    items.push({id:'air-in', group:'Flights', tint:'var(--color-accent)',
+      label:`${S.origin} → ${first.air}`,
+      detail:`${this.dayName(day)} · ${S.pax} travelers`,
+      source:this.haulTag(first).trim()||'polled',
+      planned:this.haulIn(first)});
+
+    P.order.forEach((c,i)=>{
+      if(i>0){ const h=P.legs[i-1];
+        items.push({id:`hop-${P.order[i-1].id}-${c.id}`, group:'Ground & short hops', tint:'var(--ocean)',
+          label:`${P.order[i-1].name} → ${c.name}`,
+          detail:`${h.mode} · ${h.hours.toFixed(1)}h`,
+          source:'estimated', planned:h.price});
+      }
+      const rt=this.rateOf(c);
+      items.push({id:`stay-${c.id}`, group:'Stays', tint:'var(--plum)',
+        label:`${c.name} · ${P.nights[i]} nights`,
+        detail:`${this.dayName(day)} – ${this.dayName(day+P.nights[i])} · ${this.money(rt.rate*this.rooms())}/night`,
+        source:rt.live?`${rt.sample} properties`:'estimated',
+        planned:this.stayOf(c,P.nights[i])});
+      items.push({id:`local-${c.id}`, group:'Local & tickets', tint:'var(--amber)',
+        label:`${c.name} on the ground`,
+        detail:`${P.nights[i]} days · transit, food, venues`,
+        source:'estimated', planned:this.localOf(c,P.nights[i])});
+      day+=P.nights[i];
+    });
+
+    items.push({id:'air-out', group:'Flights', tint:'var(--color-accent)',
+      label:`${last.air} → ${S.origin}`,
+      detail:`${this.dayName(S.ret)} · ${S.pax} travelers`,
+      source:this.haulOutTag(last).trim()||'polled',
+      planned:this.haulOut(last)});
+
+    return items;
+  }
+  paidFor(id){ const v=(this.state.actuals||{})[id];
+    return (v!=null && v!=='' && !isNaN(Number(v))) ? Number(v) : null; }
+
   // What you have actually paid, plus any lines you added yourself.
   committed(){
-    const A=this.state.actuals||{};
-    const paid=['air','hops','stay','local'].reduce((a,k)=>{
-      const v=A[k]; return a + (v!=null&&v!==''&&!isNaN(Number(v)) ? Number(v) : 0); },0);
+    const paid=this.budgetItems().reduce((a,it)=>a+(this.paidFor(it.id)||0),0);
     return paid + (this.state.extras||[]).reduce((a,x)=>a+x.amount,0);
   }
   // Paid where known, planned where not.
   projected(){
-    const P=this.plan(), A=this.state.actuals||{};
-    const plan={air:P?P.air:0, hops:P?P.hops:0, stay:P?P.stay:0, local:P?P.local:0};
-    const sum=['air','hops','stay','local'].reduce((a,k)=>{
-      const v=A[k];
-      return a + ((v!=null&&v!==''&&!isNaN(Number(v))) ? Number(v) : plan[k]); },0);
+    const sum=this.budgetItems().reduce((a,it)=>{
+      const p=this.paidFor(it.id); return a + (p!=null?p:it.planned); },0);
     return sum + (this.state.extras||[]).reduce((a,x)=>a+x.amount,0);
   }
 
@@ -1212,18 +1188,8 @@ class Component extends DCLogic {
 
   // ── drags ──────────────────────────────────────────────────
   pos(e){ const r=e.currentTarget.getBoundingClientRect(); return Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)); }
-  onRangeDown=(e)=>{ e.currentTarget.setPointerCapture(e.pointerId); const i=Math.round(this.pos(e)*this.span());
-    this.grab = Math.abs(i-this.state.dep)<=Math.abs(i-this.state.ret) ? 'dep':'ret'; this.dragR=true; this.setRange(i); };
-  onRangeMove=(e)=>{ if(this.dragR) this.setRange(Math.round(this.pos(e)*this.span())); };
+
   onRangeUp=()=>{ this.dragR=false; };
-  setRange(i){
-    if(this.grab==='dep') this.setState(s=>({dep:Math.min(i, s.ret-2)}));
-    else this.setState(s=>({ret:Math.max(i, s.dep+2)}));
-  }
-  onBudDown=(e)=>{ e.currentTarget.setPointerCapture(e.pointerId); this.dragB=true; this.setBud(e); };
-  onBudMove=(e)=>{ if(this.dragB) this.setBud(e); };
-  onBudUp=()=>{ this.dragB=false; };
-  setBud(e){ this.setState({budget: Math.round((4000+this.pos(e)*26000)/500)*500}); }
 
   onScrubDown=(e)=>{ e.currentTarget.setPointerCapture(e.pointerId); this.dragS=true; this.setScrub(e); };
   onScrubMove=(e)=>{ if(this.dragS) this.setScrub(e); };
@@ -1234,12 +1200,13 @@ class Component extends DCLogic {
   onThDown=(e)=>{ e.currentTarget.setPointerCapture(e.pointerId); this.dragT=true; this.setTh(e); };
   onThMove=(e)=>{ if(this.dragT) this.setTh(e); };
   onThUp=()=>{ this.dragT=false; };
-  setTh(e){ const b=this.state.budget; this.setState({th: Math.round((b*0.6+this.pos(e)*b*0.5)/20)*20}); }
+  setTh(e){ const P=this.plan(); const b=P?P.total:8000;
+    this.setState({th: Math.round((b*0.6+this.pos(e)*b*0.5)/20)*20}); }
 
   // ── render ─────────────────────────────────────────────────
   renderVals(){
     const S=this.state, ink='var(--color-text)', mut='var(--color-neutral-700)', acc='var(--color-accent)';
-    const P=this.plan(), total=P?P.total:0, over=total>S.budget;
+    const P=this.plan(), total=P?P.total:0;
     const nightsByCity={}; if(P) P.order.forEach((c,i)=>{ nightsByCity[c.id]=P.nights[i]; });
 
     const picked=this.catalog.filter(c=>S.sel.includes(c.id)||S.extra.includes(c.id));
@@ -1319,6 +1286,7 @@ class Component extends DCLogic {
     legs.forEach(l=>{ l.stepDisplay = l.editable?'flex':'none'; l.nightsStr = l.nightsStr||'';
       l.onMinus = l.onMinus||(()=>{}); l.onPlus = l.onPlus||(()=>{});
       l.onUp = l.onUp||(()=>{}); l.onDown = l.onDown||(()=>{});
+      l.stop = (e)=>e.stopPropagation();
       l.upBg = l.upBg||'transparent'; l.upFg = l.upFg||mut;
       l.downBg = l.downBg||'transparent'; l.downFg = l.downFg||mut; });
 
@@ -1445,7 +1413,7 @@ class Component extends DCLogic {
       tabPlanShadow:S.tab==='plan'?'0 2px 6px rgba(45,43,43,.18)':'none',
       tabTripShadow:S.tab==='trip'?'0 2px 6px rgba(45,43,43,.18)':'none',
       tabAlertsShadow:S.tab==='alerts'?'0 2px 6px rgba(45,43,43,.18)':'none',
-      flowTotalColor:over?'#ff9280':'#ffffff',
+      flowTotalColor:'#ffffff',
 
       origins:this.originDefs.map(o=>({code:o.code, onPick:()=>this.setState({origin:o.code}),
         bg:S.origin===o.code?'linear-gradient(180deg,#3a3532,#221f1d)':'rgba(32,30,29,.055)',
@@ -1474,22 +1442,11 @@ class Component extends DCLogic {
       depIso:this.isoAt(S.dep), retIso:this.isoAt(S.ret),
       onDepDate:(e)=>this.setDate('dep', e.target.value),
       onRetDate:(e)=>this.setDate('ret', e.target.value),
-      windowLabel:`${this.longDate(0)} — ${this.longDate(this.span())}`,
-      windowBack:()=>this.shiftWindow(-30), windowFwd:()=>this.shiftWindow(30),
-      spanOpts:[{l:'2 mo',v:60},{l:'5 mo',v:150},{l:'9 mo',v:270},{l:'18 mo',v:540}].map(o=>({
-        label:o.l, onPick:()=>this.setSpan(o.v),
-        bg:this.span()===o.v?'linear-gradient(180deg,#3a3532,#221f1d)':'rgba(32,30,29,.055)',
-        fg:this.span()===o.v?'#fff':'var(--color-neutral-800)'})),
-      depPct:(S.dep/this.span()*100).toFixed(1), retPct:(S.ret/this.span()*100).toFixed(1),
-      spanPct:((S.ret-S.dep)/this.span()*100).toFixed(1),
       nightsTotal:this.nightsTotal(), seasonNote:this.season(),
-      onRangeDown:this.onRangeDown, onRangeMove:this.onRangeMove, onRangeUp:this.onRangeUp,
       flexOpts:['Exact','±3','±7'].map((l,i)=>({label:l, onPick:()=>this.setState({flex:i}),
         bg:S.flex===i?acc:'transparent', fg:S.flex===i?'var(--color-bg)':ink})),
       paxLabel:`${S.pax} traveler${S.pax>1?'s':''}`,
       paxMinus:()=>this.setState(st=>({pax:Math.max(1,st.pax-1)})), paxPlus:()=>this.setState(st=>({pax:Math.min(6,st.pax+1)})),
-      budgetStr:this.money(S.budget), budPct:((S.budget-4000)/26000*100).toFixed(1),
-      onBudDown:this.onBudDown, onBudMove:this.onBudMove, onBudUp:this.onBudUp,
 
       regions:this.regionDefs.map(r=>({label:r, onPick:()=>this.setState({region:r}),
         bg:S.region===r?'linear-gradient(180deg,#3a3532,#221f1d)':'rgba(32,30,29,.055)',
@@ -1502,15 +1459,12 @@ class Component extends DCLogic {
 
       flowName: P ? (P.legs.some(l=>l.mode==='Rail') ? 'Open-jaw + rail'
                     : P.legs.some(l=>l.mode==='Drive') ? 'Fly-drive loop' : 'Multi-city open-jaw') : 'No stops yet',
-      flowChain, totalStr:this.money(total), budgetColor:over?acc:ink,
+      flowChain, totalStr:this.money(total), budgetColor:ink,
       flowWhy: P ? `Enter at ${P.order[0].name}, exit from ${P.order[P.order.length-1].name}. ${savings>0?'Saves '+this.money(savings)+' against the worst order of the same stops.':'Only one sensible order for these stops.'}` : 'Add a city to build a flow.',
       alts: P ? P.alts.map(a=>({chain:a.order.map(c=>c.air).join(' — '),
         sub:`${a.legs.filter(l=>l.mode!=='Fly').length} ground · ${a.legs.filter(l=>l.mode==='Fly').length} air between stops`,
         delta:'+'+this.money(a.travel-P.travel)})) : [],
 
-      segAirPct:P?((P.air+P.hops)/(S.budget*1.08)*100).toFixed(1):'0',
-      segStayPct:P?(P.stay/(S.budget*1.08)*100).toFixed(1):'0',
-      segLocalPct:P?(P.local/(S.budget*1.08)*100).toFixed(1):'0',
 
       tripTitle:P?P.order.map(c=>c.name).join(' · '):'No stops yet',
       nightsHint:`${this.nightsTotal()} nights · ± moves nights between stops, ↑↓ reorders the route`,
@@ -1520,37 +1474,44 @@ class Component extends DCLogic {
       useRecommended:()=>this.useRecommended(),
 
       // ── budget tab ──
-      categories: (()=>{
-        const A=S.actuals||{};
-        const defs=[
-          {k:'air',   name:'Long-haul air', planned:P?P.air:0,   tint:'var(--color-accent)', note:this.noteFor('air',P)},
-          {k:'hops',  name:'Between stops', planned:P?P.hops:0,  tint:'var(--ocean)',        note:'Rail, drive and short flights · estimated'},
-          {k:'stay',  name:'Stays',         planned:P?P.stay:0,  tint:'var(--plum)',         note:this.noteFor('stay',P)},
-          {k:'local', name:'Local & tickets',planned:P?P.local:0,tint:'var(--amber)',        note:'Transit, food allowance, venues · estimated'}
-        ];
-        return defs.map(o=>{
-          const paid=A[o.k];
-          const v=(paid!=null&&paid!=='')?Number(paid)-o.planned:null;
-          return {name:o.name, note:o.note, tint:o.tint,
-            plannedStr:this.money(o.planned),
-            placeholder:this.money(o.planned).replace('$',''),
-            actual: paid==null?'':paid,
-            onSet:(e)=>{ const val=e.target.value;
-              this.setState(st=>({actuals:{...st.actuals,[o.k]:val}})); },
-            variance: v===null?'' : (v===0?'on plan' : (v>0?'+':'−')+this.money(Math.abs(v)).replace('$','$')),
-            varColor: v===null?mut : (v>0?acc:'var(--color-neutral-800)')};
-        });
+      budgetGroups: (()=>{
+        const items=this.budgetItems();
+        const order=['Flights','Ground & short hops','Stays','Local & tickets'];
+        return order.map(g=>{
+          const rows=items.filter(it=>it.group===g);
+          if(!rows.length) return null;
+          const planned=rows.reduce((a,it)=>a+it.planned,0);
+          const paidRows=rows.filter(it=>this.paidFor(it.id)!=null);
+          const paid=paidRows.reduce((a,it)=>a+this.paidFor(it.id),0);
+          return {
+            name:g, tint:rows[0].tint,
+            plannedStr:this.money(planned),
+            paidStr: paidRows.length ? `${this.money(paid)} paid · ${paidRows.length} of ${rows.length}` : 'nothing paid yet',
+            rows: rows.map(it=>{
+              const p=this.paidFor(it.id);
+              const v=p==null?null:p-it.planned;
+              return {label:it.label, detail:it.detail, source:it.source,
+                plannedStr:this.money(it.planned),
+                placeholder:String(Math.round(it.planned)),
+                actual: p==null?'':(S.actuals||{})[it.id],
+                onSet:(e)=>{ const val=e.target.value;
+                  this.setState(st=>({actuals:{...st.actuals,[it.id]:val}})); },
+                variance: v===null?'' : (v===0?'on plan' : (v>0?'+':'−')+this.money(Math.abs(v))),
+                varColor: v===null?mut : (v>0?acc:'var(--color-neutral-800)'),
+                rowBg: p==null?'rgba(255,255,255,.72)':'linear-gradient(180deg,#f6fbf7,#eef7f1)'};
+            })};
+        }).filter(Boolean);
       })(),
+      itemCount:this.budgetItems().length,
       actualStr:this.money(this.committed()),
       projStr:this.money(this.projected()),
-      projColor:this.projected()>S.budget?acc:ink,
-      barActual:Math.min(100,(this.committed()/Math.max(1,S.budget))*100).toFixed(1),
-      barPlanned:Math.max(0,Math.min(100-(this.committed()/Math.max(1,S.budget))*100,
-        ((this.projected()-this.committed())/Math.max(1,S.budget))*100)).toFixed(1),
-      budgetLine:`${this.money(this.committed())} paid of ${this.money(S.budget)}`,
-      remainLine: this.projected()>S.budget
-        ? `${this.money(this.projected()-S.budget)} over`
-        : `${this.money(S.budget-this.projected())} headroom`,
+      projColor:ink,
+      barActual:this.projected()>0?Math.min(100,(this.committed()/this.projected())*100).toFixed(1):'0',
+      barPlanned:this.projected()>0?Math.max(0,100-(this.committed()/this.projected())*100).toFixed(1):'0',
+      budgetLine:`${this.money(this.committed())} paid`,
+      remainLine:`${this.money(Math.max(0,this.projected()-this.committed()))} still to pay`,
+      perPersonStr:this.money(this.projected()/Math.max(1,S.pax)),
+      splitNote:`${this.nightsTotal()} nights · ${S.pax} traveler${S.pax>1?'s':''} · paid and planned combined`,
       extras:(S.extras||[]).map(x=>({label:x.label, amountStr:this.money(x.amount),
         onRemove:()=>this.setState(st=>({extras:st.extras.filter(y=>y.id!==x.id)}))})),
       extrasTotalStr:this.money((S.extras||[]).reduce((a,x)=>a+x.amount,0)),
@@ -1565,7 +1526,8 @@ class Component extends DCLogic {
         name:c.name,
         detail:`${P.nights[i]} nights · ${this.money(this.rateOf(c).rate*this.rooms())}/night${this.rateOf(c).live?'':' est.'}`,
         totalStr:this.money(this.stayOf(c,P.nights[i])+this.localOf(c,P.nights[i]))})) : [],
-      headroom: over ? this.money(total-S.budget)+' over budget' : this.money(S.budget-total)+' left',
+      planSummary: P ? `${P.order.map(c=>c.air).join(' → ')} · ${this.nightsTotal()} nights` : 'No stops yet',
+      headroom: P ? `${this.money(total/Math.max(1,S.pax))} each` : '',
       legs, airStr:P?this.money(P.air):'$0', hopStr:P?this.money(P.hops):'$0',
       stayStr:P?this.money(P.stay):'$0', localStr:P?this.money(P.local):'$0',
       airNote: (()=>{ const stops=P?P.order:[]; if(!stops.length) return '';
@@ -1579,7 +1541,6 @@ class Component extends DCLogic {
       stayNote: (()=>{ const stops=P?P.order:[]; if(!stops.length) return '';
         const n=stops.filter(c=>this.rateOf(c).live).length;
         return n===stops.length&&n>0 ? 'polled' : (n?`${n} of ${stops.length} polled`:'estimated'); })(),
-      remainStr:(over?'−':'')+this.money(Math.abs(S.budget-total)),
 
       pickerOpen:S.picker, openPicker:()=>this.setState({picker:true}), closePicker:()=>this.setState({picker:false,q:''}),
       q:S.q, onQ:(e)=>this.setState({q:e.target.value}), results,
@@ -1646,7 +1607,7 @@ class Component extends DCLogic {
         boxFill:S.rules[r.k]?acc:'transparent', onToggle:()=>this.setState(st=>({rules:{...st.rules,[r.k]:!st.rules[r.k]}}))})),
       channels:chDefs.map(c=>({label:c.label, onPick:()=>this.setState({ch:c.id}),
         bg:S.ch===c.id?ink:'transparent', fg:S.ch===c.id?'var(--color-bg)':ink})),
-      thresholdStr:this.money(S.th), thPct:(((S.th-S.budget*0.6)/(S.budget*0.5))*100).toFixed(1),
+      thresholdStr:this.money(S.th), thPct:(((S.th-total*0.6)/Math.max(1,total*0.5))*100).toFixed(1),
       thresholdHint: (()=>{
         const stops = P ? P.order : [];
         const n = stops.length ? Math.min(...stops.map(c=>this.series(c).s.length)) : 0;
