@@ -185,7 +185,6 @@ function createFares(baseUrl, opts) {
 window.TripFares = createFares;
 </script>
 </helmet>
-<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#ec3013"/><g fill="#fff"><rect x="30" y="46" width="40" height="4"/><circle cx="34" cy="38" r="4"/><circle cx="50" cy="33" r="4"/><circle cx="66" cy="41" r="4"/><rect x="30" y="58" width="28" height="4" opacity=".7"/><rect x="30" y="66" width="18" height="4" opacity=".45"/></g></svg></template>
 <div style="position:relative;width:100vw;height:100dvh;overflow:hidden;background:#f6f4f3">
 <div style="position:absolute;inset:0;background:radial-gradient(120% 70% at 0% 0%,#ffffff 0%,#f6f4f3 38%,#eae7e4 100%);color:var(--color-text);font-family:var(--font-body);display:flex;flex-direction:column;overflow:hidden">
 
@@ -390,6 +389,14 @@ window.TripFares = createFares;
       <div style="font-size:10.5px;color:var(--color-neutral-700);margin-top:7px">{{ nightsHint }}</div>
     </div>
 
+    <div style="display:{{ recDisplay }};align-items:center;gap:10px;padding:10px 20px;background:var(--color-accent-100);border-bottom:1px solid var(--color-divider)">
+      <div style="flex:1;min-width:0">
+        <div style="font-family:var(--font-heading);font-weight:800;font-size:12.5px;color:var(--color-accent-700)">{{ recTitle }}</div>
+        <div style="font-size:10.5px;color:var(--color-neutral-700);margin-top:2px">{{ recBody }}</div>
+      </div>
+      <button onClick="{{ useRecommended }}" style="flex:none;padding:7px 11px;border:0;border-radius:10px;cursor:pointer;font:600 10.5px/1 var(--font-heading);letter-spacing:.05em;text-transform:uppercase;background:linear-gradient(180deg,#ff6247,#ec3013 60%,#cf2409);color:#fff">Apply</button>
+    </div>
+
     <div style="flex:1;overflow-y:auto">
       <sc-for list="{{ legs }}" as="l" hint-placeholder-count="6">
         <div onClick="{{ l.onOpen }}" style="display:flex;gap:12px;padding:12px 20px;border-bottom:1px solid var(--color-divider);cursor:pointer">
@@ -401,10 +408,14 @@ window.TripFares = createFares;
           <div style="text-align:right;flex:none">
             <div style="font-family:var(--font-heading);font-weight:800;font-size:15.5px">{{ l.priceStr }}</div>
             <div style="font-size:10.5px;font-weight:600;color:{{ l.deltaColor }}">{{ l.delta }}</div>
-            <div style="display:{{ l.stepDisplay }};align-items:center;gap:7px;margin-top:6px">
+            <div style="display:flex;align-items:center;gap:7px;margin-top:6px">
               <button onClick="{{ l.onMinus }}" style="width:24px;height:24px;flex:none;border:1px solid var(--color-divider);background:transparent;color:inherit;font:600 13px/1 var(--font-heading);cursor:pointer">−</button>
               <span style="font-size:11px;letter-spacing:.03em;min-width:52px">{{ l.nightsStr }}</span>
               <button onClick="{{ l.onPlus }}" style="width:24px;height:24px;flex:none;border:1px solid var(--color-divider);background:transparent;color:inherit;font:600 13px/1 var(--font-heading);cursor:pointer">+</button>
+            </div>
+            <div style="display:{{ l.stepDisplay }};align-items:center;gap:7px;margin-top:5px;justify-content:flex-end">
+              <button onClick="{{ l.onUp }}" style="width:24px;height:24px;flex:none;border:0;border-radius:7px;background:{{ l.upBg }};color:{{ l.upFg }};font:600 11px/1 var(--font-heading);cursor:pointer">↑</button>
+              <button onClick="{{ l.onDown }}" style="width:24px;height:24px;flex:none;border:0;border-radius:7px;background:{{ l.downBg }};color:{{ l.downFg }};font:600 11px/1 var(--font-heading);cursor:pointer">↓</button>
             </div>
           </div>
         </div>
@@ -820,7 +831,7 @@ class Component extends DCLogic {
     tab:'plan', origin:'SFO', anchor:'2027-03-01', span:150, dep:92, ret:112, flex:1, pax:2,
     budget:(this.props && this.props.budgetDefault) || 12000,    region:'All', sel:['ROM','LON','HNL','CUN'], extra:[], adj:{},
     picker:false, q:'', detail:null, scrub:null,
-    flow:false, step:1, target:'itin', th:9200, rules:{drop:true,cap:true,comp:false,win:true}, ch:'push', saved:0
+    flow:false, step:1, target:'itin', th:9200, rules:{drop:true,cap:true,comp:false,win:true}, ch:'push', saved:0, order:null
   };
 
   // ── model ──────────────────────────────────────────────────
@@ -1009,12 +1020,38 @@ class Component extends DCLogic {
     cands.forEach(c=>{ const k=c.order.map(x=>x.id).join('>'); const rk=c.order.map(x=>x.id).reverse().join('>');
       if(!seen.has(k)&&!seen.has(rk)){seen.add(k);uniq.push(c);} });
     const best=uniq[0];
-    const nights=this.nightsFor(best.order.map(c=>c.id));
+
+    // A hand-picked order wins over the optimizer; the recommendation stays
+    // visible so the cost of that choice is explicit.
+    const manualIds=this.state.order;
+    let chosen=best, manual=false;
+    if(manualIds && manualIds.length===sel.length &&
+       manualIds.every(id=>sel.some(c=>c.id===id))){
+      const order=manualIds.map(id=>sel.find(c=>c.id===id));
+      chosen={order, ...this.routeCost(order)};
+      manual=order.map(c=>c.id).join('>')!==best.order.map(c=>c.id).join('>');
+    }
+
+    const nights=this.nightsFor(chosen.order.map(c=>c.id));
     let stay=0, local=0;
-    best.order.forEach((c,i)=>{ stay+=this.stayOf(c,nights[i]); local+=this.localOf(c,nights[i]); });
-    return {...best, nights, stay, local, total:best.travel+stay+local,
-            worst:cands[cands.length-1].travel, alts:uniq.slice(1,3)};
+    chosen.order.forEach((c,i)=>{ stay+=this.stayOf(c,nights[i]); local+=this.localOf(c,nights[i]); });
+    return {...chosen, nights, stay, local, total:chosen.travel+stay+local,
+            worst:cands[cands.length-1].travel, alts:uniq.slice(1,3),
+            manual, bestOrder:best.order, bestTravel:best.travel,
+            penalty:Math.round(chosen.travel-best.travel)};
   }
+
+  // Reordering commits the current sequence first, so one tap moves one stop
+  // rather than re-running the optimizer underneath the user.
+  moveStop(id, dir){
+    const P=this.plan(); if(!P) return;
+    const ids=P.order.map(c=>c.id);
+    const i=ids.indexOf(id), j=i+dir;
+    if(i<0 || j<0 || j>=ids.length) return;
+    ids[i]=ids[j]; ids[j]=id;
+    this.setState({order:ids});
+  }
+  useRecommended(){ this.setState({order:null}); }
 
   componentDidMount(){
     const url = (this.props.faresApi||'').trim();
@@ -1146,6 +1183,11 @@ class Component extends DCLogic {
           nightsStr:`${P.nights[i]} ${P.nights[i]===1?'night':'nights'}`,
           onMinus:(e)=>{e.stopPropagation(); this.setNights(c.id,-1,P.nights[i]);},
           onPlus:(e)=>{e.stopPropagation(); this.setNights(c.id,1,P.nights[i]);},
+          onUp:(e)=>{e.stopPropagation(); this.moveStop(c.id,-1);},
+          onDown:(e)=>{e.stopPropagation(); this.moveStop(c.id,1);},
+          upBg: i>0?'rgba(32,30,29,.07)':'transparent', upFg: i>0?ink:'var(--color-neutral-400)',
+          downBg: i<P.order.length-1?'rgba(32,30,29,.07)':'transparent',
+          downFg: i<P.order.length-1?ink:'var(--color-neutral-400)',
           onOpen:()=>{}});
         day+=P.nights[i];
       });
@@ -1158,7 +1200,10 @@ class Component extends DCLogic {
     }
 
     legs.forEach(l=>{ l.stepDisplay = l.editable?'flex':'none'; l.nightsStr = l.nightsStr||'';
-      l.onMinus = l.onMinus||(()=>{}); l.onPlus = l.onPlus||(()=>{}); });
+      l.onMinus = l.onMinus||(()=>{}); l.onPlus = l.onPlus||(()=>{});
+      l.onUp = l.onUp||(()=>{}); l.onDown = l.onDown||(()=>{});
+      l.upBg = l.upBg||'transparent'; l.upFg = l.upFg||mut;
+      l.downBg = l.downBg||'transparent'; l.downFg = l.downFg||mut; });
 
     // detail
     let d=null; const dc=this.city(S.detail);
@@ -1179,9 +1224,26 @@ class Component extends DCLogic {
           emptyBody:`This pair is not in routes.json, or the poller has not found a cached fare for it yet. The price shown is a built-in estimate, not a quote. Add ${S.origin}–${dc.air} to the route list and it starts recording on the next run.`,
           verdict:'No call to make yet.', verdictWhy:'A buy-or-wait call needs recorded history. Nothing has been polled for this route.',
           verdictBg:'linear-gradient(160deg,#ffffff,#e9e5e2)', verdictFg:ink };
+      } else if(n<2){
+        // One reading is a number, not a trend. Show it plainly rather than
+        // drawing a chart frame around a single dot.
+        d={ route:`${S.origin} → ${dc.air} · ${dc.name}`, hasChart:false,
+          sourceNote: basis==='barometer' ? '1 reading · near-month barometer' : '1 reading · your dates',
+          readLabel: basis==='barometer' ? 'Latest · barometer' : 'Latest reading',
+          readPrice:this.money(s[0]),
+          delta:'—', deltaLabel:'no baseline yet', feedDisplay:'none',
+          points:'', cx:'0', cy:'0', marks:[], feed:[],
+          firstDate:'', scrubDate:'', chartDisplay:'none', emptyDisplay:'block',
+          emptyTitle:`One reading so far · ${dateAt(0)}`,
+          emptyBody: basis==='barometer'
+            ? `${this.money(s[0])} is the cheapest fare found for a near month, recorded because your dates had none cached yet. A trend line needs about five daily readings; the chart appears once they accumulate.`
+            : `${this.money(s[0])} for your dates. A trend line needs about five daily readings; the chart appears once they accumulate.`,
+          verdict:'Too early to call.',
+          verdictWhy:'One reading cannot show direction. Polling adds one a day.',
+          verdictBg:'linear-gradient(160deg,#ffffff,#e9e5e2)', verdictFg:ink };
       } else {
         const lo=Math.min(...s), hi=Math.max(...s), span=hi-lo||1;
-        const X=i=>(n<2?195:i/(n-1)*390), Y=v=>144-((v-lo)/span)*116;
+        const X=i=>(i/(n-1)*390), Y=v=>144-((v-lo)/span)*116;
         const idx=S.scrub===null?n-1:Math.min(n-1,Math.max(0,Math.round(S.scrub/89*(n-1))));
         const rate=this.weeklyRate(dc);
         const move=this.moveOf(dc);
@@ -1192,12 +1254,13 @@ class Component extends DCLogic {
         d={ route:`${S.origin} → ${dc.air} · ${dc.name}`, hasChart:true,
           sourceNote: basis==='barometer' ? `${n} reading${n===1?'':'s'} · near-month barometer` : `${n} reading${n===1?'':'s'} · your dates`,
           chartDisplay:'block', emptyDisplay:'none',
-          points:n>1?s.map((v,i)=>`${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(' '):'',
+          points:s.map((v,i)=>`${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(' '),
           cx:X(idx).toFixed(1), cy:Y(s[idx]).toFixed(1),
           readLabel:S.scrub===null?(basis==='barometer'?'Latest · barometer':'Latest reading'):dateAt(idx),
           readPrice:this.money(s[idx]),
-          scrubDate:n>1?(S.scrub===null?'drag to scrub':dateAt(idx)):`one reading · ${dateAt(0)}`,
+          scrubDate:S.scrub===null?'drag to scrub':dateAt(idx),
           firstDate:dateAt(0),
+          emptyDisplay:'none', emptyTitle:'', emptyBody:'',
           delta: move ? (move.abs===0?'flat':(move.pct>0?'+':'')+Math.round(move.pct)+'%') : 'first reading',
           deltaLabel: move ? (n>7?'vs 7 days':`vs ${n} readings`) : 'no baseline yet',
           feedDisplay:'block',
@@ -1329,7 +1392,11 @@ class Component extends DCLogic {
       segLocalPct:P?(P.local/(S.budget*1.08)*100).toFixed(1):'0',
 
       tripTitle:P?P.order.map(c=>c.name).join(' · '):'No stops yet',
-      nightsHint:`${this.nightsTotal()} nights · use ± to move nights between stops — the rest rebalance`,
+      nightsHint:`${this.nightsTotal()} nights · ± moves nights between stops, ↑↓ reorders the route`,
+      recDisplay: (P && P.manual && P.penalty>25) ? 'flex' : 'none',
+      recTitle: P&&P.manual ? `Recommended order saves ${this.money(P.penalty)}` : '',
+      recBody: P&&P.manual&&P.bestOrder ? P.bestOrder.map(c=>c.air).join(' → ') : '',
+      useRecommended:()=>this.useRecommended(),
       headroom: over ? this.money(total-S.budget)+' over budget' : this.money(S.budget-total)+' left',
       legs, airStr:P?this.money(P.air):'$0', hopStr:P?this.money(P.hops):'$0',
       stayStr:P?this.money(P.stay):'$0', localStr:P?this.money(P.local):'$0',
