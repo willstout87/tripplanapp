@@ -6,12 +6,12 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-09-05",
- "price": 1134,
- "best_date": "2027-07-15",
- "basis": "window",
- "carrier": "GQ",
- "transfers": 2,
+ "updated": "2026-09-06",
+ "price": 984,
+ "best_date": "2026-11-03",
+ "basis": "barometer",
+ "carrier": "JU",
+ "transfers": 3,
  "history": [
   {
    "day": "2026-09-02",
@@ -35,8 +35,29 @@
    "price": 1134,
    "best_date": "2027-07-15",
    "basis": "window"
+  },
+  {
+   "day": "2026-09-06",
+   "price": 984,
+   "best_date": "2026-11-03",
+   "basis": "barometer"
   }
  ],
- "events": [],
+ "events": [
+  {
+   "day": "2026-09-06",
+   "kind": "move",
+   "title": "Sharp drop",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": -150
+  },
+  {
+   "day": "2026-09-06",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2027-07-15 to 2026-11-03",
+   "delta": -150
+  }
+ ],
  "schedule": null
 }
