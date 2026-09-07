@@ -1,0 +1,25 @@
+{
+ "origin": "CUN",
+ "dest": "LAX",
+ "pax": 2,
+ "note": "Cancun home to LAX, return",
+ "window": [
+  "2027-07"
+ ],
+ "updated": "2026-09-07",
+ "price": 414,
+ "best_date": "2026-11-08",
+ "basis": "barometer",
+ "carrier": "Y4",
+ "transfers": 1,
+ "history": [
+  {
+   "day": "2026-09-07",
+   "price": 414,
+   "best_date": "2026-11-08",
+   "basis": "barometer"
+  }
+ ],
+ "events": [],
+ "schedule": null
+}
