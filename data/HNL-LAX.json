@@ -6,9 +6,9 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-09-12",
- "price": 502,
- "best_date": "2027-07-02",
+ "updated": "2026-09-13",
+ "price": 520,
+ "best_date": "2027-07-09",
  "basis": "window",
  "carrier": "AA",
  "transfers": 0,
@@ -78,6 +78,12 @@
    "price": 502,
    "best_date": "2027-07-02",
    "basis": "window"
+  },
+  {
+   "day": "2026-09-13",
+   "price": 520,
+   "best_date": "2027-07-09",
+   "basis": "window"
   }
  ],
  "events": [
@@ -108,6 +114,13 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2027-07-09 to 2027-07-02",
    "delta": 2
+  },
+  {
+   "day": "2026-09-13",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2027-07-02 to 2027-07-09",
+   "delta": 18
   }
  ],
  "schedule": null
