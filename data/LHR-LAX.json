@@ -6,11 +6,11 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-09-13",
- "price": 838,
- "best_date": "2026-11-03",
+ "updated": "2026-09-14",
+ "price": 922,
+ "best_date": "2026-11-01",
  "basis": "barometer",
- "carrier": "AA",
+ "carrier": "AY",
  "transfers": 1,
  "history": [
   {
@@ -83,6 +83,12 @@
    "price": 838,
    "best_date": "2026-11-03",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-09-14",
+   "price": 922,
+   "best_date": "2026-11-01",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -127,6 +133,20 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-11-06 to 2026-11-03",
    "delta": -58
+  },
+  {
+   "day": "2026-09-14",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 84
+  },
+  {
+   "day": "2026-09-14",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2026-11-03 to 2026-11-01",
+   "delta": 84
   }
  ],
  "schedule": null

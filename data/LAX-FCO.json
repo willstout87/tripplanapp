@@ -6,8 +6,8 @@
  "window": [
   "2027-06"
  ],
- "updated": "2026-09-13",
- "price": 718,
+ "updated": "2026-09-14",
+ "price": 730,
  "best_date": "2026-12-24",
  "basis": "barometer",
  "carrier": "TP",
@@ -82,6 +82,12 @@
   {
    "day": "2026-09-13",
    "price": 718,
+   "best_date": "2026-12-24",
+   "basis": "barometer"
+  },
+  {
+   "day": "2026-09-14",
+   "price": 730,
    "best_date": "2026-12-24",
    "basis": "barometer"
   }
