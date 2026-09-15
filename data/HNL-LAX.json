@@ -6,8 +6,8 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-09-14",
- "price": 520,
+ "updated": "2026-09-15",
+ "price": 498,
  "best_date": "2027-07-09",
  "basis": "window",
  "carrier": "AA",
@@ -88,6 +88,12 @@
   {
    "day": "2026-09-14",
    "price": 520,
+   "best_date": "2027-07-09",
+   "basis": "window"
+  },
+  {
+   "day": "2026-09-15",
+   "price": 498,
    "best_date": "2027-07-09",
    "basis": "window"
   }

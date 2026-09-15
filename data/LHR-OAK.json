@@ -6,8 +6,8 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-09-14",
- "price": 954,
+ "updated": "2026-09-15",
+ "price": 958,
  "best_date": "2026-11-11",
  "basis": "barometer",
  "carrier": "LX",
@@ -88,6 +88,12 @@
   {
    "day": "2026-09-14",
    "price": 954,
+   "best_date": "2026-11-11",
+   "basis": "barometer"
+  },
+  {
+   "day": "2026-09-15",
+   "price": 958,
    "best_date": "2026-11-11",
    "basis": "barometer"
   }
