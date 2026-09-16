@@ -6,11 +6,11 @@
  "window": [
   "2027-06"
  ],
- "updated": "2026-09-15",
- "price": 388,
- "best_date": "2026-11-02",
+ "updated": "2026-09-16",
+ "price": 342,
+ "best_date": "2026-11-15",
  "basis": "barometer",
- "carrier": "Y4",
+ "carrier": "VB",
  "transfers": 1,
  "history": [
   {
@@ -96,6 +96,12 @@
    "price": 388,
    "best_date": "2026-11-02",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-09-16",
+   "price": 342,
+   "best_date": "2026-11-15",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -126,6 +132,20 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-12-08 to 2026-11-02",
    "delta": 24
+  },
+  {
+   "day": "2026-09-16",
+   "kind": "move",
+   "title": "Sharp drop",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": -46
+  },
+  {
+   "day": "2026-09-16",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2026-11-02 to 2026-11-15",
+   "delta": -46
   }
  ],
  "schedule": null

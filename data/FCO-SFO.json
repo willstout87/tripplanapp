@@ -6,12 +6,12 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-09-15",
- "price": 892,
- "best_date": "2026-12-07",
+ "updated": "2026-09-16",
+ "price": 1068,
+ "best_date": "2026-12-28",
  "basis": "barometer",
  "carrier": "FR",
- "transfers": 2,
+ "transfers": 3,
  "history": [
   {
    "day": "2026-09-02",
@@ -84,6 +84,12 @@
    "price": 892,
    "best_date": "2026-12-07",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-09-16",
+   "price": 1068,
+   "best_date": "2026-12-28",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -121,6 +127,20 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-11-01 to 2026-12-07",
    "delta": -138
+  },
+  {
+   "day": "2026-09-16",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 176
+  },
+  {
+   "day": "2026-09-16",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2026-12-07 to 2026-12-28",
+   "delta": 176
   }
  ],
  "schedule": null
