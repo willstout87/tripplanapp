@@ -6,8 +6,8 @@
  "window": [
   "2027-06"
  ],
- "updated": "2026-09-17",
- "price": 922,
+ "updated": "2026-09-18",
+ "price": 924,
  "best_date": "2027-06-13",
  "basis": "window",
  "carrier": "AC",
@@ -40,6 +40,12 @@
   {
    "day": "2026-09-17",
    "price": 922,
+   "best_date": "2027-06-13",
+   "basis": "window"
+  },
+  {
+   "day": "2026-09-18",
+   "price": 924,
    "best_date": "2027-06-13",
    "basis": "window"
   }
