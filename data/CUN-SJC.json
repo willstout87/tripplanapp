@@ -1,0 +1,25 @@
+{
+ "origin": "CUN",
+ "dest": "SJC",
+ "pax": 2,
+ "note": "Cancun home to SJC, return",
+ "window": [
+  "2027-07"
+ ],
+ "updated": "2026-09-19",
+ "price": 576,
+ "best_date": "2027-07-01",
+ "basis": "window",
+ "carrier": "UA",
+ "transfers": 1,
+ "history": [
+  {
+   "day": "2026-09-19",
+   "price": 576,
+   "best_date": "2027-07-01",
+   "basis": "window"
+  }
+ ],
+ "events": [],
+ "schedule": null
+}
