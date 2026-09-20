@@ -1,27 +1,21 @@
 {
  "origin": "CUN",
- "dest": "SJC",
+ "dest": "OAK",
  "pax": 2,
- "note": "Cancun home to SJC, return",
+ "note": "Cancun home to OAK, return",
  "window": [
   "2027-07"
  ],
  "updated": "2026-09-20",
- "price": 576,
+ "price": 546,
  "best_date": "2027-07-01",
  "basis": "window",
- "carrier": "UA",
+ "carrier": "AM",
  "transfers": 1,
  "history": [
   {
-   "day": "2026-09-19",
-   "price": 576,
-   "best_date": "2027-07-01",
-   "basis": "window"
-  },
-  {
    "day": "2026-09-20",
-   "price": 576,
+   "price": 546,
    "best_date": "2027-07-01",
    "basis": "window"
   }

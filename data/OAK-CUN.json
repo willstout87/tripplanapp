@@ -1,0 +1,25 @@
+{
+ "origin": "OAK",
+ "dest": "CUN",
+ "pax": 2,
+ "note": "OAK to Cancun, outbound",
+ "window": [
+  "2027-06"
+ ],
+ "updated": "2026-09-20",
+ "price": 500,
+ "best_date": "2027-06-01",
+ "basis": "window",
+ "carrier": "AM",
+ "transfers": 1,
+ "history": [
+  {
+   "day": "2026-09-20",
+   "price": 500,
+   "best_date": "2027-06-01",
+   "basis": "window"
+  }
+ ],
+ "events": [],
+ "schedule": null
+}
