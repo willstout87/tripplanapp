@@ -6,12 +6,12 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-09-21",
- "price": 1090,
- "best_date": "2027-07-12",
+ "updated": "2026-09-22",
+ "price": 1122,
+ "best_date": "2027-07-26",
  "basis": "window",
- "carrier": "TP",
- "transfers": 1,
+ "carrier": "U2",
+ "transfers": 2,
  "history": [
   {
    "day": "2026-09-02",
@@ -132,6 +132,12 @@
    "price": 1090,
    "best_date": "2027-07-12",
    "basis": "window"
+  },
+  {
+   "day": "2026-09-22",
+   "price": 1122,
+   "best_date": "2027-07-26",
+   "basis": "window"
   }
  ],
  "events": [
@@ -190,6 +196,13 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-12-11 to 2027-07-12",
    "delta": 506
+  },
+  {
+   "day": "2026-09-22",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2027-07-12 to 2027-07-26",
+   "delta": 32
   }
  ],
  "schedule": null
