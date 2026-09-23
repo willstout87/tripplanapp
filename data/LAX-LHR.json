@@ -6,12 +6,12 @@
  "window": [
   "2027-06"
  ],
- "updated": "2026-09-22",
- "price": 676,
- "best_date": "2026-11-18",
- "basis": "barometer",
- "carrier": "F9",
- "transfers": 2,
+ "updated": "2026-09-23",
+ "price": 920,
+ "best_date": "2027-06-12",
+ "basis": "window",
+ "carrier": "AC",
+ "transfers": 1,
  "history": [
   {
    "day": "2026-09-02",
@@ -126,6 +126,12 @@
    "price": 676,
    "best_date": "2026-11-18",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-09-23",
+   "price": 920,
+   "best_date": "2027-06-12",
+   "basis": "window"
   }
  ],
  "events": [
@@ -177,6 +183,20 @@
    "title": "Sharp rise",
    "detail": "No schedule change recorded — demand or fare-bucket move",
    "delta": 46
+  },
+  {
+   "day": "2026-09-23",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 244
+  },
+  {
+   "day": "2026-09-23",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2026-11-18 to 2027-06-12",
+   "delta": 244
   }
  ],
  "schedule": null

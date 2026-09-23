@@ -6,11 +6,11 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-09-08",
- "price": 984,
- "best_date": "2026-11-03",
- "basis": "barometer",
- "carrier": "JU",
+ "updated": "2026-09-23",
+ "price": 1424,
+ "best_date": "2027-07-25",
+ "basis": "window",
+ "carrier": "RO",
  "transfers": 3,
  "history": [
   {
@@ -53,6 +53,12 @@
    "price": 984,
    "best_date": "2026-11-03",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-09-23",
+   "price": 1424,
+   "best_date": "2027-07-25",
+   "basis": "window"
   }
  ],
  "events": [
@@ -69,6 +75,20 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2027-07-15 to 2026-11-03",
    "delta": -150
+  },
+  {
+   "day": "2026-09-23",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 440
+  },
+  {
+   "day": "2026-09-23",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2026-11-03 to 2027-07-25",
+   "delta": 440
   }
  ],
  "schedule": null
