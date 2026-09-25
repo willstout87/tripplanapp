@@ -6,9 +6,9 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-09-24",
- "price": 246,
- "best_date": "2026-11-09",
+ "updated": "2026-09-25",
+ "price": 396,
+ "best_date": "2026-11-20",
  "basis": "barometer",
  "carrier": "AS",
  "transfers": 0,
@@ -150,6 +150,12 @@
    "price": 246,
    "best_date": "2026-11-09",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-09-25",
+   "price": 396,
+   "best_date": "2026-11-20",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -222,6 +228,20 @@
    "title": "Sharp drop",
    "detail": "No schedule change recorded — demand or fare-bucket move",
    "delta": -20
+  },
+  {
+   "day": "2026-09-25",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 150
+  },
+  {
+   "day": "2026-09-25",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2026-11-09 to 2026-11-20",
+   "delta": 150
   }
  ],
  "schedule": null
