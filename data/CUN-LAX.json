@@ -6,8 +6,8 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-09-26",
- "price": 376,
+ "updated": "2026-09-27",
+ "price": 404,
  "best_date": "2026-12-03",
  "basis": "barometer",
  "carrier": "Y4",
@@ -84,6 +84,12 @@
    "price": 376,
    "best_date": "2026-12-03",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-09-27",
+   "price": 404,
+   "best_date": "2026-12-03",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -107,6 +113,13 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-12-20 to 2026-12-03",
    "delta": -42
+  },
+  {
+   "day": "2026-09-27",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 28
   }
  ],
  "schedule": null
