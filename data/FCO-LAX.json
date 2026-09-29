@@ -6,12 +6,12 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-09-28",
- "price": 1122,
- "best_date": "2027-07-26",
- "basis": "window",
- "carrier": "U2",
- "transfers": 2,
+ "updated": "2026-09-29",
+ "price": 838,
+ "best_date": "2026-11-23",
+ "basis": "barometer",
+ "carrier": "W4",
+ "transfers": 3,
  "history": [
   {
    "day": "2026-09-02",
@@ -174,6 +174,12 @@
    "price": 1122,
    "best_date": "2027-07-26",
    "basis": "window"
+  },
+  {
+   "day": "2026-09-29",
+   "price": 838,
+   "best_date": "2026-11-23",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -239,6 +245,20 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2027-07-12 to 2027-07-26",
    "delta": 32
+  },
+  {
+   "day": "2026-09-29",
+   "kind": "move",
+   "title": "Sharp drop",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": -284
+  },
+  {
+   "day": "2026-09-29",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2027-07-26 to 2026-11-23",
+   "delta": -284
   }
  ],
  "schedule": null
