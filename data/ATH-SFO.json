@@ -6,11 +6,11 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-09-19",
- "price": 1272,
- "best_date": "2027-07-27",
- "basis": "window",
- "carrier": "U2",
+ "updated": "2026-09-30",
+ "price": 2084,
+ "best_date": "2026-12-22",
+ "basis": "barometer",
+ "carrier": "PC",
  "transfers": 2,
  "history": [
   {
@@ -54,8 +54,29 @@
    "price": 1272,
    "best_date": "2027-07-27",
    "basis": "window"
+  },
+  {
+   "day": "2026-09-30",
+   "price": 2084,
+   "best_date": "2026-12-22",
+   "basis": "barometer"
   }
  ],
- "events": [],
+ "events": [
+  {
+   "day": "2026-09-30",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 812
+  },
+  {
+   "day": "2026-09-30",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2027-07-27 to 2026-12-22",
+   "delta": 812
+  }
+ ],
  "schedule": null
 }
