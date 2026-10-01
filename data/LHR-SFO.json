@@ -6,11 +6,11 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-09-30",
- "price": 950,
+ "updated": "2026-10-01",
+ "price": 1026,
  "best_date": "2026-11-03",
  "basis": "barometer",
- "carrier": "LX",
+ "carrier": "B6",
  "transfers": 1,
  "history": [
   {
@@ -186,6 +186,12 @@
    "price": 950,
    "best_date": "2026-11-03",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-10-01",
+   "price": 1026,
+   "best_date": "2026-11-03",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -230,6 +236,13 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-11-07 to 2026-11-03",
    "delta": 20
+  },
+  {
+   "day": "2026-10-01",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 76
   }
  ],
  "schedule": null
