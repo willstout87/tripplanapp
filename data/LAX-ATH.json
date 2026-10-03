@@ -6,11 +6,11 @@
  "window": [
   "2027-06"
  ],
- "updated": "2026-09-07",
- "price": 828,
- "best_date": "2026-11-08",
+ "updated": "2026-10-03",
+ "price": 858,
+ "best_date": "2026-12-10",
  "basis": "barometer",
- "carrier": "AZ",
+ "carrier": "TP",
  "transfers": 1,
  "history": [
   {
@@ -47,6 +47,12 @@
    "price": 828,
    "best_date": "2026-11-08",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-10-03",
+   "price": 858,
+   "best_date": "2026-12-10",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -63,6 +69,13 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2027-06-30 to 2026-11-08",
    "delta": -156
+  },
+  {
+   "day": "2026-10-03",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2026-11-08 to 2026-12-10",
+   "delta": 30
   }
  ],
  "schedule": null
