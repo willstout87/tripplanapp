@@ -6,11 +6,11 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-10-05",
- "price": 884,
- "best_date": "2026-12-04",
+ "updated": "2026-10-06",
+ "price": 944,
+ "best_date": "2026-12-07",
  "basis": "barometer",
- "carrier": "UA",
+ "carrier": "LX",
  "transfers": 1,
  "history": [
   {
@@ -216,6 +216,12 @@
    "price": 884,
    "best_date": "2026-12-04",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-10-06",
+   "price": 944,
+   "best_date": "2026-12-07",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -281,6 +287,20 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-11-03 to 2026-12-04",
    "delta": -142
+  },
+  {
+   "day": "2026-10-06",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 60
+  },
+  {
+   "day": "2026-10-06",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2026-12-04 to 2026-12-07",
+   "delta": 60
   }
  ],
  "schedule": null

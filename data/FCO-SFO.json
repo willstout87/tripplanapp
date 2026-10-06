@@ -6,11 +6,11 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-10-05",
- "price": 830,
+ "updated": "2026-10-06",
+ "price": 836,
  "best_date": "2026-12-07",
  "basis": "barometer",
- "carrier": "MW",
+ "carrier": "FR",
  "transfers": 2,
  "history": [
   {
@@ -178,6 +178,12 @@
   {
    "day": "2026-10-05",
    "price": 830,
+   "best_date": "2026-12-07",
+   "basis": "barometer"
+  },
+  {
+   "day": "2026-10-06",
+   "price": 836,
    "best_date": "2026-12-07",
    "basis": "barometer"
   }
