@@ -6,11 +6,11 @@
  "window": [
   "2027-06"
  ],
- "updated": "2026-10-07",
- "price": 686,
- "best_date": "2026-12-10",
+ "updated": "2026-10-08",
+ "price": 758,
+ "best_date": "2026-12-29",
  "basis": "barometer",
- "carrier": "B6",
+ "carrier": "AZ",
  "transfers": 1,
  "history": [
   {
@@ -216,6 +216,12 @@
    "price": 686,
    "best_date": "2026-12-10",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-10-08",
+   "price": 758,
+   "best_date": "2026-12-29",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -316,6 +322,20 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-12-11 to 2026-12-10",
    "delta": 46
+  },
+  {
+   "day": "2026-10-08",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 72
+  },
+  {
+   "day": "2026-10-08",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2026-12-10 to 2026-12-29",
+   "delta": 72
   }
  ],
  "schedule": null
