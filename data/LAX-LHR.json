@@ -6,7 +6,7 @@
  "window": [
   "2027-06"
  ],
- "updated": "2026-10-09",
+ "updated": "2026-10-10",
  "price": 690,
  "best_date": "2026-12-06",
  "basis": "barometer",
@@ -225,6 +225,12 @@
   },
   {
    "day": "2026-10-09",
+   "price": 690,
+   "best_date": "2026-12-06",
+   "basis": "barometer"
+  },
+  {
+   "day": "2026-10-10",
    "price": 690,
    "best_date": "2026-12-06",
    "basis": "barometer"
