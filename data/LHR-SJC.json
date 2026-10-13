@@ -1,0 +1,25 @@
+{
+ "origin": "LHR",
+ "dest": "SJC",
+ "pax": 2,
+ "note": "London home to SJC, return",
+ "window": [
+  "2027-07"
+ ],
+ "updated": "2026-10-13",
+ "price": 1016,
+ "best_date": "2026-12-04",
+ "basis": "barometer",
+ "carrier": "AS",
+ "transfers": 1,
+ "history": [
+  {
+   "day": "2026-10-13",
+   "price": 1016,
+   "best_date": "2026-12-04",
+   "basis": "barometer"
+  }
+ ],
+ "events": [],
+ "schedule": null
+}
