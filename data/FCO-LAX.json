@@ -6,12 +6,12 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-10-13",
- "price": 744,
+ "updated": "2026-10-14",
+ "price": 850,
  "best_date": "2026-12-07",
  "basis": "barometer",
- "carrier": "U2",
- "transfers": 2,
+ "carrier": "TP",
+ "transfers": 1,
  "history": [
   {
    "day": "2026-09-02",
@@ -264,6 +264,12 @@
    "price": 744,
    "best_date": "2026-12-07",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-10-14",
+   "price": 850,
+   "best_date": "2026-12-07",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -385,6 +391,13 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2027-07-01 to 2026-12-07",
    "delta": -422
+  },
+  {
+   "day": "2026-10-14",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 106
   }
  ],
  "schedule": null
