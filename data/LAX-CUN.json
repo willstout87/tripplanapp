@@ -6,8 +6,8 @@
  "window": [
   "2027-06"
  ],
- "updated": "2026-10-15",
- "price": 292,
+ "updated": "2026-10-16",
+ "price": 284,
  "best_date": "2027-01-25",
  "basis": "barometer",
  "carrier": "Y4",
@@ -274,6 +274,12 @@
   {
    "day": "2026-10-15",
    "price": 292,
+   "best_date": "2027-01-25",
+   "basis": "barometer"
+  },
+  {
+   "day": "2026-10-16",
+   "price": 284,
    "best_date": "2027-01-25",
    "basis": "barometer"
   }
