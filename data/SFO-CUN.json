@@ -6,11 +6,11 @@
  "window": [
   "2027-06"
  ],
- "updated": "2026-10-20",
- "price": 330,
- "best_date": "2027-01-09",
+ "updated": "2026-10-21",
+ "price": 620,
+ "best_date": "2026-12-16",
  "basis": "barometer",
- "carrier": "AM",
+ "carrier": "SY",
  "transfers": 1,
  "history": [
   {
@@ -270,6 +270,12 @@
    "price": 330,
    "best_date": "2027-01-09",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-10-21",
+   "price": 620,
+   "best_date": "2026-12-16",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -370,6 +376,20 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2027-01-08 to 2027-01-09",
    "delta": -2
+  },
+  {
+   "day": "2026-10-21",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 290
+  },
+  {
+   "day": "2026-10-21",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2027-01-09 to 2026-12-16",
+   "delta": 290
   }
  ],
  "schedule": null
