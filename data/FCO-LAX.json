@@ -6,9 +6,9 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-10-23",
- "price": 752,
- "best_date": "2026-12-10",
+ "updated": "2026-10-24",
+ "price": 730,
+ "best_date": "2026-12-14",
  "basis": "barometer",
  "carrier": "EI",
  "transfers": 1,
@@ -324,6 +324,12 @@
    "price": 752,
    "best_date": "2026-12-10",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-10-24",
+   "price": 730,
+   "best_date": "2026-12-14",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -473,6 +479,13 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-12-15 to 2026-12-10",
    "delta": -30
+  },
+  {
+   "day": "2026-10-24",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2026-12-10 to 2026-12-14",
+   "delta": -22
   }
  ],
  "schedule": null
