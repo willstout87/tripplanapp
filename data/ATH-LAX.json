@@ -6,12 +6,12 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-10-26",
- "price": 1294,
- "best_date": "2027-07-26",
- "basis": "window",
- "carrier": "GQ",
- "transfers": 2,
+ "updated": "2026-10-27",
+ "price": 1454,
+ "best_date": "2027-01-05",
+ "basis": "barometer",
+ "carrier": "LO",
+ "transfers": 1,
  "history": [
   {
    "day": "2026-09-02",
@@ -191,6 +191,12 @@
    "price": 1294,
    "best_date": "2027-07-26",
    "basis": "window"
+  },
+  {
+   "day": "2026-10-27",
+   "price": 1454,
+   "best_date": "2027-01-05",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -270,6 +276,20 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2027-01-01 to 2027-07-26",
    "delta": -350
+  },
+  {
+   "day": "2026-10-27",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 160
+  },
+  {
+   "day": "2026-10-27",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2027-07-26 to 2027-01-05",
+   "delta": 160
   }
  ],
  "schedule": null
