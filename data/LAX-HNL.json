@@ -6,9 +6,9 @@
  "window": [
   "2027-06"
  ],
- "updated": "2026-10-27",
+ "updated": "2026-10-28",
  "price": 346,
- "best_date": "2026-12-08",
+ "best_date": "2026-12-02",
  "basis": "barometer",
  "carrier": "AS",
  "transfers": 0,
@@ -347,6 +347,12 @@
    "price": 346,
    "best_date": "2026-12-08",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-10-28",
+   "price": 346,
+   "best_date": "2026-12-02",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -545,6 +551,13 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-12-07 to 2026-12-08",
    "delta": 2
+  },
+  {
+   "day": "2026-10-28",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2026-12-08 to 2026-12-02",
+   "delta": 0
   }
  ],
  "schedule": null

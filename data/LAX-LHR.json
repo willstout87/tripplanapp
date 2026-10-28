@@ -6,11 +6,11 @@
  "window": [
   "2027-06"
  ],
- "updated": "2026-10-27",
- "price": 892,
- "best_date": "2027-06-06",
- "basis": "window",
- "carrier": "TP",
+ "updated": "2026-10-28",
+ "price": 556,
+ "best_date": "2026-12-05",
+ "basis": "barometer",
+ "carrier": "B6",
  "transfers": 1,
  "history": [
   {
@@ -336,6 +336,12 @@
    "price": 892,
    "best_date": "2027-06-06",
    "basis": "window"
+  },
+  {
+   "day": "2026-10-28",
+   "price": 556,
+   "best_date": "2026-12-05",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -506,6 +512,20 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-12-05 to 2027-06-06",
    "delta": 284
+  },
+  {
+   "day": "2026-10-28",
+   "kind": "move",
+   "title": "Sharp drop",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": -336
+  },
+  {
+   "day": "2026-10-28",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2027-06-06 to 2026-12-05",
+   "delta": -336
   }
  ],
  "schedule": null

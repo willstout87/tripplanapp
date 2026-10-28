@@ -6,8 +6,8 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-10-27",
- "price": 354,
+ "updated": "2026-10-28",
+ "price": 350,
  "best_date": "2026-12-11",
  "basis": "barometer",
  "carrier": "AS",
@@ -346,6 +346,12 @@
   {
    "day": "2026-10-27",
    "price": 354,
+   "best_date": "2026-12-11",
+   "basis": "barometer"
+  },
+  {
+   "day": "2026-10-28",
+   "price": 350,
    "best_date": "2026-12-11",
    "basis": "barometer"
   }
