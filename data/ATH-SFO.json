@@ -6,12 +6,12 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-10-28",
- "price": 1288,
- "best_date": "2027-01-05",
+ "updated": "2026-10-29",
+ "price": 1210,
+ "best_date": "2026-12-24",
  "basis": "barometer",
- "carrier": "AZ",
- "transfers": 4,
+ "carrier": "FR",
+ "transfers": 2,
  "history": [
   {
    "day": "2026-09-13",
@@ -204,6 +204,12 @@
    "price": 1288,
    "best_date": "2027-01-05",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-10-29",
+   "price": 1210,
+   "best_date": "2026-12-24",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -248,6 +254,20 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-12-02 to 2027-01-05",
    "delta": 178
+  },
+  {
+   "day": "2026-10-29",
+   "kind": "move",
+   "title": "Sharp drop",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": -78
+  },
+  {
+   "day": "2026-10-29",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2027-01-05 to 2026-12-24",
+   "delta": -78
   }
  ],
  "schedule": null

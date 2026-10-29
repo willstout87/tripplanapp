@@ -6,12 +6,12 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-10-28",
- "price": 978,
- "best_date": "2026-12-11",
+ "updated": "2026-10-29",
+ "price": 982,
+ "best_date": "2026-12-10",
  "basis": "barometer",
- "carrier": "VL",
- "transfers": 1,
+ "carrier": "VY",
+ "transfers": 2,
  "history": [
   {
    "day": "2026-09-02",
@@ -354,6 +354,12 @@
    "price": 978,
    "best_date": "2026-12-11",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-10-29",
+   "price": 982,
+   "best_date": "2026-12-10",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -517,6 +523,13 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-12-02 to 2026-12-11",
    "delta": 100
+  },
+  {
+   "day": "2026-10-29",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2026-12-11 to 2026-12-10",
+   "delta": 4
   }
  ],
  "schedule": null
