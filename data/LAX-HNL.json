@@ -6,11 +6,11 @@
  "window": [
   "2027-06"
  ],
- "updated": "2026-10-29",
- "price": 346,
+ "updated": "2026-10-30",
+ "price": 362,
  "best_date": "2026-12-02",
  "basis": "barometer",
- "carrier": "AS",
+ "carrier": "AA",
  "transfers": 0,
  "history": [
   {
@@ -357,6 +357,12 @@
   {
    "day": "2026-10-29",
    "price": 346,
+   "best_date": "2026-12-02",
+   "basis": "barometer"
+  },
+  {
+   "day": "2026-10-30",
+   "price": 362,
    "best_date": "2026-12-02",
    "basis": "barometer"
   }

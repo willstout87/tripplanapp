@@ -6,12 +6,12 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-10-29",
- "price": 816,
- "best_date": "2026-12-13",
+ "updated": "2026-10-30",
+ "price": 894,
+ "best_date": "2026-12-11",
  "basis": "barometer",
- "carrier": "VY",
- "transfers": 3,
+ "carrier": "TP",
+ "transfers": 1,
  "history": [
   {
    "day": "2026-09-02",
@@ -359,6 +359,12 @@
    "price": 816,
    "best_date": "2026-12-13",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-10-30",
+   "price": 894,
+   "best_date": "2026-12-11",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -536,6 +542,20 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-12-11 to 2026-12-13",
    "delta": -78
+  },
+  {
+   "day": "2026-10-30",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 78
+  },
+  {
+   "day": "2026-10-30",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2026-12-13 to 2026-12-11",
+   "delta": 78
   }
  ],
  "schedule": null
