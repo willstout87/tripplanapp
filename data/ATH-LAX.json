@@ -6,12 +6,12 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-10-30",
- "price": 1454,
- "best_date": "2027-01-05",
+ "updated": "2026-10-31",
+ "price": 1812,
+ "best_date": "2027-01-03",
  "basis": "barometer",
- "carrier": "LO",
- "transfers": 1,
+ "carrier": "W4",
+ "transfers": 2,
  "history": [
   {
    "day": "2026-09-02",
@@ -215,6 +215,12 @@
    "price": 1454,
    "best_date": "2027-01-05",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-10-31",
+   "price": 1812,
+   "best_date": "2027-01-03",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -308,6 +314,20 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2027-07-26 to 2027-01-05",
    "delta": 160
+  },
+  {
+   "day": "2026-10-31",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 358
+  },
+  {
+   "day": "2026-10-31",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2027-01-05 to 2027-01-03",
+   "delta": 358
   }
  ],
  "schedule": null

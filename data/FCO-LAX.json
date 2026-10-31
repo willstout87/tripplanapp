@@ -6,11 +6,11 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-10-30",
- "price": 730,
- "best_date": "2026-12-14",
+ "updated": "2026-10-31",
+ "price": 832,
+ "best_date": "2026-12-10",
  "basis": "barometer",
- "carrier": "EI",
+ "carrier": "TP",
  "transfers": 1,
  "history": [
   {
@@ -366,6 +366,12 @@
    "price": 730,
    "best_date": "2026-12-14",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-10-31",
+   "price": 832,
+   "best_date": "2026-12-10",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -522,6 +528,20 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-12-10 to 2026-12-14",
    "delta": -22
+  },
+  {
+   "day": "2026-10-31",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 102
+  },
+  {
+   "day": "2026-10-31",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2026-12-14 to 2026-12-10",
+   "delta": 102
   }
  ],
  "schedule": null
