@@ -6,11 +6,11 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-11-01",
- "price": 924,
- "best_date": "2026-12-14",
+ "updated": "2026-11-02",
+ "price": 940,
+ "best_date": "2027-01-11",
  "basis": "barometer",
- "carrier": "TP",
+ "carrier": "LX",
  "transfers": 1,
  "history": [
   {
@@ -377,6 +377,12 @@
    "price": 924,
    "best_date": "2026-12-14",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-11-02",
+   "price": 940,
+   "best_date": "2027-01-11",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -575,6 +581,13 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-12-11 to 2026-12-14",
    "delta": 30
+  },
+  {
+   "day": "2026-11-02",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2026-12-14 to 2027-01-11",
+   "delta": 16
   }
  ],
  "schedule": null
