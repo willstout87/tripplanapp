@@ -6,8 +6,8 @@
  "window": [
   "2027-06"
  ],
- "updated": "2026-11-02",
- "price": 500,
+ "updated": "2026-11-03",
+ "price": 556,
  "best_date": "2027-01-02",
  "basis": "barometer",
  "carrier": "VB",
@@ -384,6 +384,12 @@
    "price": 500,
    "best_date": "2027-01-02",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-11-03",
+   "price": 556,
+   "best_date": "2027-01-02",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -589,6 +595,13 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2026-12-30 to 2027-01-02",
    "delta": 32
+  },
+  {
+   "day": "2026-11-03",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 56
   }
  ],
  "schedule": null
