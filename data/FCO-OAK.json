@@ -1,0 +1,25 @@
+{
+ "origin": "FCO",
+ "dest": "OAK",
+ "pax": 2,
+ "note": "Rome home to OAK, return",
+ "window": [
+  "2027-07"
+ ],
+ "updated": "2026-11-06",
+ "price": 1190,
+ "best_date": "2027-07-01",
+ "basis": "window",
+ "carrier": "BA",
+ "transfers": 1,
+ "history": [
+  {
+   "day": "2026-11-06",
+   "price": 1190,
+   "best_date": "2027-07-01",
+   "basis": "window"
+  }
+ ],
+ "events": [],
+ "schedule": null
+}
