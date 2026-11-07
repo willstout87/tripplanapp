@@ -6,10 +6,10 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-11-06",
- "price": 838,
- "best_date": "2027-01-10",
- "basis": "barometer",
+ "updated": "2026-11-07",
+ "price": 1098,
+ "best_date": "2027-07-01",
+ "basis": "window",
  "carrier": "BA",
  "transfers": 1,
  "history": [
@@ -402,6 +402,12 @@
    "price": 838,
    "best_date": "2027-01-10",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-11-07",
+   "price": 1098,
+   "best_date": "2027-07-01",
+   "basis": "window"
   }
  ],
  "events": [
@@ -586,6 +592,20 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2027-01-07 to 2027-01-10",
    "delta": -20
+  },
+  {
+   "day": "2026-11-07",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 260
+  },
+  {
+   "day": "2026-11-07",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2027-01-10 to 2027-07-01",
+   "delta": 260
   }
  ],
  "schedule": null
