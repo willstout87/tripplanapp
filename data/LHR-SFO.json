@@ -6,8 +6,8 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-11-09",
- "price": 1028,
+ "updated": "2026-11-10",
+ "price": 962,
  "best_date": "2027-01-14",
  "basis": "barometer",
  "carrier": "VY",
@@ -426,6 +426,12 @@
    "price": 1028,
    "best_date": "2027-01-14",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-11-10",
+   "price": 962,
+   "best_date": "2027-01-14",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -631,6 +637,13 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2027-01-01 to 2027-01-14",
    "delta": -1176
+  },
+  {
+   "day": "2026-11-10",
+   "kind": "move",
+   "title": "Sharp drop",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": -66
   }
  ],
  "schedule": null
