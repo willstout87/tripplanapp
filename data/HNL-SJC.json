@@ -6,12 +6,12 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-11-12",
- "price": 522,
+ "updated": "2026-11-13",
+ "price": 388,
  "best_date": "2027-01-06",
  "basis": "barometer",
- "carrier": "WN",
- "transfers": 2,
+ "carrier": "AS",
+ "transfers": 1,
  "history": [
   {
    "day": "2026-10-14",
@@ -132,6 +132,12 @@
    "price": 522,
    "best_date": "2027-01-06",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-11-13",
+   "price": 388,
+   "best_date": "2027-01-06",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -155,6 +161,13 @@
    "title": "Sharp rise",
    "detail": "No schedule change recorded — demand or fare-bucket move",
    "delta": 84
+  },
+  {
+   "day": "2026-11-13",
+   "kind": "move",
+   "title": "Sharp drop",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": -134
   }
  ],
  "schedule": null
