@@ -6,11 +6,11 @@
  "window": [
   "2027-06"
  ],
- "updated": "2026-11-01",
- "price": 598,
- "best_date": "2026-12-08",
+ "updated": "2026-11-14",
+ "price": 1156,
+ "best_date": "2027-01-02",
  "basis": "barometer",
- "carrier": "B6",
+ "carrier": "UA",
  "transfers": 1,
  "history": [
   {
@@ -294,6 +294,12 @@
    "price": 598,
    "best_date": "2026-12-08",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-11-14",
+   "price": 1156,
+   "best_date": "2027-01-02",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -408,6 +414,20 @@
    "title": "Cheapest date moved",
    "detail": "Best departure shifted 2027-01-11 to 2026-12-08",
    "delta": -8
+  },
+  {
+   "day": "2026-11-14",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 558
+  },
+  {
+   "day": "2026-11-14",
+   "kind": "window",
+   "title": "Cheapest date moved",
+   "detail": "Best departure shifted 2026-12-08 to 2027-01-02",
+   "delta": 558
   }
  ],
  "schedule": null

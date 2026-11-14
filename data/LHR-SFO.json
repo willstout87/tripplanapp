@@ -6,8 +6,8 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-11-13",
- "price": 962,
+ "updated": "2026-11-14",
+ "price": 950,
  "best_date": "2027-01-14",
  "basis": "barometer",
  "carrier": "VY",
@@ -448,6 +448,12 @@
   {
    "day": "2026-11-13",
    "price": 962,
+   "best_date": "2027-01-14",
+   "basis": "barometer"
+  },
+  {
+   "day": "2026-11-14",
+   "price": 950,
    "best_date": "2027-01-14",
    "basis": "barometer"
   }
