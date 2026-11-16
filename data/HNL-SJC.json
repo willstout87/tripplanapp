@@ -6,8 +6,8 @@
  "window": [
   "2027-07"
  ],
- "updated": "2026-11-15",
- "price": 388,
+ "updated": "2026-11-16",
+ "price": 454,
  "best_date": "2027-01-06",
  "basis": "barometer",
  "carrier": "AS",
@@ -150,6 +150,12 @@
    "price": 388,
    "best_date": "2027-01-06",
    "basis": "barometer"
+  },
+  {
+   "day": "2026-11-16",
+   "price": 454,
+   "best_date": "2027-01-06",
+   "basis": "barometer"
   }
  ],
  "events": [
@@ -180,6 +186,13 @@
    "title": "Sharp drop",
    "detail": "No schedule change recorded — demand or fare-bucket move",
    "delta": -134
+  },
+  {
+   "day": "2026-11-16",
+   "kind": "move",
+   "title": "Sharp rise",
+   "detail": "No schedule change recorded — demand or fare-bucket move",
+   "delta": 66
   }
  ],
  "schedule": null
